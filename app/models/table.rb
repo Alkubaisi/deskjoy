@@ -3,7 +3,6 @@ class Table < ApplicationRecord
   has_many :users, through: :bookings
   validates :title, presence: true
   validates :description, presence: true
-  validates :photo, presence: true
   validates :price, presence: true
 
 
