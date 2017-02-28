@@ -1,22 +1,19 @@
 // Your footer style
-.navbar-fixed-bottom {
+.footer-deskjoy {
   position: fixed;
-  height: 300px;
+  bottom: 0;
   min-width: 100%;
   margin: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-direction: row;
+  background-color: $desk-gray;
+  padding: 10px 30px;
+
+  a:hover {
+    color: $desk-red;
+  }
 }
 
-.bookendleft {
-  flex: 1;
-}
 
-.item1 {
-  flex: 1;
-}
-
-.bookendright {
-  flex: 1;
-}
