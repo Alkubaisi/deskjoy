@@ -11,10 +11,6 @@ class SpacesController < ApplicationController
     @space = Space.new
   end
 
-  def edit
-
-  end
-
   def create
     @space = Space.new(space_params)
     @space.user = current_user
@@ -23,6 +19,10 @@ class SpacesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+
   end
 
   private
