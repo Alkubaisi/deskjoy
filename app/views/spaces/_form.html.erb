@@ -7,20 +7,36 @@
     <%= f.input :address , input_html: { placeholder: "Address" } %>
     <%= f.input :industry  %>
     <%= f.input :company_info %>
-    <%= f.input :reciption %>
-    <%= f.input :security %>
-    <%= f.input :event_space %>
-    <%= f.input :bike_storage %>
-    <%= f.input :phone_booth %>
-    <%= f.input :kitchen %>
-    <%= f.input :lockers %>
-    <%= f.input :cafe_restaurant %>
-    <%= f.input :showers %>
-    <%= f.input :meeting_room %>
-    <%= f.input :hours %>
-    <%= f.input :wifi %>
-    <%= f.input :refreshment %>
-    <%= f.input :photo, as: :attachinary %>
+    <div class="row">
+    <div class="col-xs-4">    <%= f.input :reciption %>
+     <%= f.input :bike_storage %>
+     <%= f.input :kitchen %>
+       <%= f.input :showers %>
+        <%= f.input :wifi %>
+      </div>
+      <div class="col-xs-4">    <%= f.input :security %>
+        <%= f.input :bike_storage %>
+         <%= f.input :lockers %>
+         <%= f.input :meeting_room %>
+           <%= f.input :refreshment %>
+      </div>
+      <div class="col-xs-4">    <%= f.input :event_space %>
+       <%= f.input :phone_booth %>
+       <%= f.input :cafe_restaurant %>
+       <%= f.input :hours %>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <%= f.input :photos, as: :attachinary %>
 
   </div>
 

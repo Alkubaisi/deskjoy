@@ -1,5 +1,5 @@
 class Space < ApplicationRecord
-  has_attachment :photo
+  has_attachment :photos, maximum: 4
   belongs_to :user
   has_many :desks, dependent: :destroy
   validates :name, presence: true

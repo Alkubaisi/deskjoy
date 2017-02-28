@@ -28,7 +28,7 @@ end
 
 # Never trust parameters from the scary internet, only allow the white list through.
 def space_params
-  params.require(:space).permit(:name, :address, :industry, :photo, :location, :company_info, :reciption, :security, :event_space, :bike_storage, :phone_booth, :kitchen, :lockers, :cafe_restaurant, :showers, :meeting_room, :hours, :wifi, :refreshment)
+  params.require(:space).permit(:name, :address, :industry, :location, :company_info, :reciption, :security, :event_space, :bike_storage, :phone_booth, :kitchen, :lockers, :cafe_restaurant, :showers, :meeting_room, :hours, :wifi, :refreshment, photos: [])
 end
 
 
