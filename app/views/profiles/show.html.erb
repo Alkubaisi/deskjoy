@@ -1,0 +1,11 @@
+<h1>Profile Page</h1>
+
+<h3>This is the profile of: <%= "#{@user.first_name} #{@user.last_name}" %></h3>
+
+<ul>
+  <li>Linkedin: <%= @user.linkedin %></li>
+  <li>Twitter: <%= @user.twitter %></li>
+</ul>
+
+
+<%= link_to "edit profile", edit_profile_path(@user), class: "btn btn-warning" %>
