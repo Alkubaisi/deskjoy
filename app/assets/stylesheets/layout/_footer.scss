@@ -1,1 +1,22 @@
 // Your footer style
+.navbar-fixed-bottom {
+  position: fixed;
+  height: 8%;
+  min-width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.bookendleft {
+  flex: 1;
+}
+
+.item1 {
+  flex: 1;
+}
+
+.bookendright {
+  flex: 1;
+}
