@@ -1,4 +1,5 @@
 class Space < ApplicationRecord
+  has_attachment :photo
   belongs_to :user
   has_many :desks, dependent: :destroy
   validates :name, presence: true
