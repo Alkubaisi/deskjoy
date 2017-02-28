@@ -1,5 +1,5 @@
 $(function () {
-  $('#fnjdskjbfkds').datetimepicker({
+  $('#bookingdate').datetimepicker({
     format: 'DD/MM/YYYY'
   });
 });

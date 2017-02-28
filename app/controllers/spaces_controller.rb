@@ -4,10 +4,13 @@ def index
 end
 def new
   @space = Space.new
-
 end
 def edit
 
+end
+
+def show
+set_space
 end
 def create
   @space = Space.new(space_params)
