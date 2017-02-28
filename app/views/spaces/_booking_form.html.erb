@@ -1,0 +1,55 @@
+
+<div class="newspacewrapper">
+
+
+
+<div class="toppic">
+  <h1>Book This Desk </h1>
+  <p>
+
+
+Enter your booking details below.</p>
+<hr>
+</div>
+
+<div class="add-form">
+  <%= simple_form_for(@space) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, input_html: { placeholder: "Title", class: 'form-control input-lg' } %>
+    <%= f.input :address , input_html: { placeholder: "Address", class: 'form-control input-lg', :cols => 5, :rows => 4 } %>
+    <%= f.input :industry, :input_html => { placeholder: "Industry", class: 'input-lg' }, collection: Space::INDUSTRYLIST %>
+    <%= f.input :company_info, :input_html => { class: 'test', :cols => 5, :rows => 10 } %>
+    <div class="row">
+    <div class="col-xs-4">    <%= f.input :reciption %>
+     <%= f.input :bike_storage %>
+     <%= f.input :kitchen %>
+       <%= f.input :showers %>
+        <%= f.input :wifi %>
+      </div>
+      <div class="col-xs-4">    <%= f.input :security %>
+        <%= f.input :bike_storage %>
+         <%= f.input :lockers %>
+         <%= f.input :meeting_room %>
+           <%= f.input :refreshment %>
+      </div>
+      <div class="col-xs-4">    <%= f.input :event_space %>
+       <%= f.input :phone_booth %>
+       <%= f.input :cafe_restaurant %>
+       <%= f.input :hours %>
+      </div>
+    </div>
+
+
+
+    <%= f.input :photos, as: :attachinary %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, {class: "btn btn-primary" } %>
+  </div>
+  <% end %>
+</div>
+</div>
