@@ -3,14 +3,18 @@ class SpacesController < ApplicationController
     @spaces = Space.all
   end
 
-  def show
-    @space = Space.find(params[:id])
-  end
-
   def new
     @space = Space.new
   end
+  
+  def edit
+    set_space
+  end
 
+  def show
+    set_space
+  end
+  
   def create
     @space = Space.new(space_params)
     @space.user = current_user
@@ -18,14 +22,10 @@ class SpacesController < ApplicationController
       redirect_to @space, notice: 'Space was successfully created.'
     else
       render :new
-    end
-  end
-
-  def edit
-
   end
 
   private
+    
   # Use callbacks to share common setup or constraints between actions.
   def set_space
     @space = Space.find(params[:id])
