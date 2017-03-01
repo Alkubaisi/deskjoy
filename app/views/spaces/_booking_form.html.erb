@@ -1,88 +1,45 @@
-
 <div class="newspacewrapper">
-
-
-
-<div class="toppic">
-  <h1>Book This Desk </h1>
-  <p>
-
-
-Enter your booking details below.</p>
-<hr>
-</div>
+  <div class="toppic">
+    <h1>Book This Desk </h1>
+    <p>Enter your booking details below.</p>
+  </div>
+  <hr>
 
   <div class="form-inputs">
-
-
-<div class="add-form"> Booking Period <br>
-From
-  <%= simple_form_for(@space) do |f| %>
-  <%= f.error_notification %>
-
-<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='bookingdate'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
+    <div class="add-form">
+      <h4 class="text-center">Booking Period</h4>
+      <%= simple_form_for [@space, @booking] do |f| %>
+      <%= f.error_notification %>
+      <div class="form-group">
+        <span>From:</span>
+        <div class='input-group date' id='bookingdate-from'>
+          <%= f.input :duration, label: false %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
         </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#bookingdate').datetimepicker({
-                    defaultDate: "11/1/2013",
-                    disabledDates: [
-                        moment("12/25/2013"),
-                        new Date(2013, 11 - 1, 21),
-                        "11/22/2013 00:53"
-                    ]
-                });
-            });
-        </script>
-    </div>
-</div>
+      </div>
 
-To
-
-<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='bookingdate'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
+      <div class="form-group">
+        <span>To:</span>
+        <div class='input-group date' id='bookingdate-to'>
+          <%= f.input :duration, label: false %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
         </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#bookingdate').datetimepicker({
-                    defaultDate: "11/1/2013",
-                    disabledDates: [
-                        moment("12/25/2013"),
-                        new Date(2013, 11 - 1, 21),
-                        "11/22/2013 00:53"
-                    ]
-                });
-            });
-        </script>
+      </div>
+
+      <hr>
+
+      <h4 class="text-center">Booking Summary</h4>
+      <%= @space.location %>
+      <p>This is a placeholder</p>
+      <p>It will cost £100</p>
+
+      <div class="form-actions">
+        <%= f.submit "Book now", {class: "btn btn-primary" } %>
+      </div>
+      <% end %>
     </div>
-</div>
-
-
-Booking Summary
-<%= @space.location %>
-
-  <div class="form-actions">
-    <%= f.button :submit, {class: "btn btn-primary" } %>
   </div>
-  <% end %>
-</div>
-</div>
