@@ -1,12 +1,6 @@
 <footer class="footer-deskjoy">
 
-    <ul class="list-footer-links" style="margin: 0">
-      <li><strong>DeskJoy, Ltd</strong></li>
-      <li> <a href="#"> Become a Host</a></li>
-      <li> <a href="#"> Contact us </a></li>
-      <li> <a href="#"> About Us</a></li>
-      <li> <a href="#"> Terms & Conditions</a></li>
-    </ul>
+
 
     <ul class="list-inline listul" style="margin: 0">
       <li><i class="fa fa-linkedin fa-2x"></i></li>
@@ -15,20 +9,32 @@
       <li><i class="fa fa-youtube fa-2x"></i></li>
     </ul>
 
-  <div class="footer-address">
-    <div>
-      <strong>DeskJoy, Ltd.</strong><br>
-      825 N Jefferson St, Suite 600<br>
-      Milwaukee, WI 53202, USA<br>
-      <abbr title="Phone">P:</abbr> (123) 456-7890
-    </div>
+  <div class="flexbox-containter-footer">
+    <ul class="list-footer-links" style="margin: 0; list-style: none;">
+      <li><strong>DeskJoy, Ltd</strong></li>
+       <li><%= link_to "Become a Host"  %></li>
+      <li><%= link_to "Contact us", contact_path %></li>
+       <li><%= link_to "About us", about_path %></li>
+      <li> <a href="#"> Terms & Conditions</a></li>
+    </ul>
 
-    <div>
-      <strong>Email:</strong><br>
-      <a href="mailto:#">Info@DeskJoy.com</a>
+
+    <div class="footer-address">
+      <div>
+        <strong>DeskJoy, Ltd.</strong><br>
+        825 N Jefferson St, Suite 600<br>
+        Milwaukee, WI 53202, USA<br>
+        <abbr title="Phone">P:</abbr> (123) 456-7890
+      </div>
+
+      <div>
+        <strong>Email:</strong><br>
+        <a href="mailto:#">Info@DeskJoy.com</a>
+      </div>
     </div>
   </div>
 
 </footer>
+
 
 
