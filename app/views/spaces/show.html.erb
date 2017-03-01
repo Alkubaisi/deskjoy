@@ -58,29 +58,46 @@
 
           <button class="accordion">What's available?</button>
           <div class="panel">
-          <div class="row">
-          <% if @space.wifi %>
-            <div class="col-xs-4"><i class="fa fa-bed fa-fw" aria-hidden="true"></i></div>
-          <% end %>
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4"></div>
-          </div>
-
-          <br>
-            <div class="col-sm-3">
-              <p><strong>Amenities:</strong></p>
-            </div>
-            <div class="col-xs-6 col-sm-4">
-              <p><i class="fa fa-bed fa-fw" aria-hidden="true"></i>Wifi <%= @space.wifi ? "yes" : "no" %></p>
-              <p><i class="fa fa-bath fa-fw" aria-hidden="true"></i>@reception if :true</p>
-              <p><i class="fa fa-bath fa-fw" aria-hidden="true"></i>@event_space if :true</p>
-              <p><i class="fa fa-eye fa-fw" aria-hidden="true"></i> @showers if :true</p>
+            <div class="row">
+            <% if @space.reception %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.wifi %>
+              <div class="col-xs-4"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.event_space %>
+              <div class="col-xs-4"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.security %>
+              <div class="col-xs-4"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.bike_storage %>
+              <div class="col-xs-4"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.phone_booth %>
+              <div class="col-xs-4"><i class="fa fa-quora fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.kitchen %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.lockers %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.cafe_restaurant %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.showers %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.meeting_room %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.always_open %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.refreshment %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
             </div>
           </div>
 
