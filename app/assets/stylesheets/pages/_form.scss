@@ -1,17 +1,11 @@
 .newspacewrapper {
-
   padding: 20px;
-  margin-top: 70px;
-  margin-bottom: 70px;
   color: white;
-
   z-index: 100;
   padding: 20px;
-  background: rgb(34,34,34); /* for IE */
+  background: rgb(34,34,34);
   background: rgba(34,34,34,0.75);
-  -webkit-box-shadow: 1px 1px 18px 0px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow:    1px 1px 18px 0px rgba(50, 50, 50, 0.75);
-  box-shadow:         1px 1px 18px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 1px 1px 18px 0px rgba(50, 50, 50, 0.75);
 
   .bootstrap-datetimepicker-widget {
     color: black;
