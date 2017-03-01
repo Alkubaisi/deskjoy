@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
   devise_for :users
-  resources :profiles, only: [:show, :edit, :update]
+  resources :profiles, only: [:show, :edit, :update, :info]
 
   root to: 'pages#home'
   # get "/dashboard", to: "users#dashboard"
