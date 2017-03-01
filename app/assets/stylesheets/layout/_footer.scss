@@ -10,19 +10,25 @@
   box-shadow: 0 0 4px $desk-darkblue;
 
   a:hover {
-    color: $desk-red;
+    color: $desk-darkblue;
   }
 }
 
+.flexbox-containter-footer {
+  width: 38%;
+  display: flex;
+  justify: flex-end;
+}
+
 .list-footer-links {
-  color: $desk-darkblue;
+
   a {
     font-size: 14px;
   }
 }
 
 .footer-address {
-
+ margin-left: 70px;
 }
 
 .listul {
