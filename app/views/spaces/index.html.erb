@@ -1,5 +1,97 @@
-<% @spaces.each do |space|  %>
+<div class="topfilter">
 
-<h1><%# space.title %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+       <fieldset>
+  <legend>Personalia:</legend>
+  Name: <input type="text"><br>
+  Email: <input type="text"><br>
+  Date of birth: <input type="text">
+ </fieldset>
 
-<% end %>
+    </div>
+
+
+
+
+
+    <div class="col-xs-12 col-md-8">
+      <div class="col-xs-12 col-md-4">
+
+
+
+
+
+
+
+        <ul class="cheklist">
+        <li>  <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" /><label for="checkbox-1-1"></label>preciption</li>
+
+        <li>  <input type="checkbox" id="checkbox-1-2" class="regular-checkbox" /><label for="checkbox-1-2"></label>security</li>
+        <li>  <input type="checkbox" id="checkbox-1-3" class="regular-checkbox" /><label for="checkbox-1-3"></label>Event space</li>
+        <li><input type="checkbox" id="checkbox-1-4" class="regular-checkbox" /><label for="checkbox-1-4"></label> Bike storage </li>
+        <li>  <input type="checkbox" id="checkbox-1-5" class="regular-checkbox" /><label for="checkbox-1-5"></label>Phone booth</li>
+</ul>
+      </div>
+
+
+
+  <div class="col-xs-12 col-md-4">
+        <ul class="cheklist">
+  <li>  <input type="checkbox" id="checkbox-1-10" class="regular-checkbox" /><label for="checkbox-1-10"></label>meeting room</li>
+        <li>  <input type="checkbox" id="checkbox-1-11" class="regular-checkbox" /><label for="checkbox-1-11"></label>24 Hours</li>
+        <li>  <input type="checkbox" id="checkbox-1-12" class="regular-checkbox" /><label for="checkbox-1-12"></label>refreshment</li>
+</ul>
+      </div>
+
+
+
+
+      <div class="col-xs-12 col-md-4">
+      <ul class="cheklist2">
+     <li>  <input type="checkbox" id="checkbox-1-6" class="regular-checkbox" /><label for="checkbox-1-6"></label>kitchen</li>
+        <li>  <input type="checkbox" id="checkbox-1-7" class="regular-checkbox" /><label for="checkbox-1-7"></label>Cafe Restaurant</li>
+        <li>  <input type="checkbox" id="checkbox-1-8" class="regular-checkbox" /><label for="checkbox-1-8"></label>Wifi</li>
+        <li>  <input type="checkbox" id="checkbox-1-9" class="regular-checkbox" /><label for="checkbox-1-9"></label>showers</li>
+
+     </ul>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+</div>
+
+
+<br>
+
+<div class="container-fluid not-padded">
+  <% @spaces.each do |space|  %>
+  <div class="col-xs-6 col-md-3 not-padded">
+
+  <div class="space-card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= cl_image_path space.photos.first.path %>);">
+
+  <div class="cardtitle">
+    <h1>  <%= space.name %>
+  </div>
+
+
+
+
+  </div>
+  </div>
+  <% end %>
+</div>
+
+
+
+
+
+
