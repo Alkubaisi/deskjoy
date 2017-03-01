@@ -20,14 +20,13 @@ please enter your details below, if you have questions you can reach us using th
     <%= f.input :industry, :input_html => { placeholder: "Industry", class: 'input-lg' }, collection: Space::INDUSTRYLIST %>
     <%= f.input :company_info, :input_html => { class: 'test', :cols => 5, :rows => 10 } %>
     <div class="row">
-    <div class="col-xs-4">    <%= f.input :reciption %>
+    <div class="col-xs-4">    <%= f.input :reception %>
      <%= f.input :bike_storage %>
      <%= f.input :kitchen %>
        <%= f.input :showers %>
         <%= f.input :wifi %>
       </div>
       <div class="col-xs-4">    <%= f.input :security %>
-        <%= f.input :bike_storage %>
          <%= f.input :lockers %>
          <%= f.input :meeting_room %>
            <%= f.input :refreshment %>
@@ -35,7 +34,7 @@ please enter your details below, if you have questions you can reach us using th
       <div class="col-xs-4">    <%= f.input :event_space %>
        <%= f.input :phone_booth %>
        <%= f.input :cafe_restaurant %>
-       <%= f.input :hours %>
+       <%= f.input :always_open %>
       </div>
     </div>
 

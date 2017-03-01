@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301112948) do
+ActiveRecord::Schema.define(version: 20170301143054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,11 +43,10 @@ ActiveRecord::Schema.define(version: 20170301112948) do
   create_table "spaces", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.text     "address"
+    t.string   "address"
     t.string   "industry"
-    t.string   "location"
     t.text     "company_info"
-    t.boolean  "reciption"
+    t.boolean  "reception"
     t.boolean  "security"
     t.boolean  "event_space"
     t.boolean  "bike_storage"
@@ -57,11 +56,12 @@ ActiveRecord::Schema.define(version: 20170301112948) do
     t.boolean  "cafe_restaurant"
     t.boolean  "showers"
     t.boolean  "meeting_room"
-    t.boolean  "hours"
+    t.boolean  "always_open"
     t.boolean  "wifi"
     t.boolean  "refreshment"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "company_name"
     t.index ["user_id"], name: "index_spaces_on_user_id", using: :btree
   end
 
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20170301112948) do
     t.integer  "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "desk_type"
     t.index ["space_id"], name: "index_tables_on_space_id", using: :btree
   end
 

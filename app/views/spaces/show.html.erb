@@ -1,6 +1,7 @@
 <div class="banner"></div>
 
 <div class="container-fluid">
+
   <div class="row">
     <div class="col-xs-12 col-sm-8">
       <div class="row">
@@ -8,75 +9,113 @@
           <h1><%= @space.name %></h1>
           <h4><%= @space.address %></h4>
 
-          <h3> A Bit About This Space....</h3>
-          <p> <%= @space.company_info %> </p>
+          <h3> A Bit About This Space... </h3>
+          <p><%= @space.company_info %></p>
         </div>
       </div>
 
       <div class="container-fluid" id="wrap">
-
-      <ol class="list list-inline">
-        <li><i class="fa fa-keyboard-o fa-fw" aria-hidden="true"></i>hotdesk</li>
-          <li><i class="fa fa-coffee fa-fw" aria-hidden="true"></i> Industury<%= @space.industry%>
-</li>
-            <li><i class="fa fa-usd fa-fw" aria-hidden="true"></i> Price</li>
-            </ol>
+        <ol class="list list-inline">
+          <li><i class="fa fa-keyboard-o fa-fw" aria-hidden="true"></i>Hotdesk: <%# @space.industry%></li>
+          <li><i class="fa fa-coffee fa-fw" aria-hidden="true"></i>Industury: <%= @space.industry%></li>
+          <li><i class="fa fa-usd fa-fw" aria-hidden="true"></i>Price: <%# @space.industry%></li>
+        </ol>
       </div>
 
+      <div class="row">
+        <div class="image_flex">
+          <div class="banner-medium"></div>
+          <div class="banner-medium"></div>
+        </div>
+      </div>
 
-              <div class="row">
-                <div class="image_flex">
-                  <div class="banner-medium"></div>
-                  <div class="banner-medium"></div>
-                </div>
+      <div class="row">
+        <div class="image_flex">
+          <div class="banner-small"></div>
+          <div class="banner-small"></div>
+          <div class="banner-small"></div>
+          <div class="banner-small"></div>
+        </div>
+      </div>
 
-              </div>
+      <div class="row text-center">
+        <div class="col-xs-6">
+          <h3>Your Host</h3>
+          <img src="https://unsplash.it/400/300" alt="user" class="avatar-bordered">
+          <br>
+          <%= @space.name %>
+          <br>
+          Apple Inc
+          <br>
+          <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+        </div>
 
-              <div class="row">
-                <div class="image_flex">
-                  <div class="banner-small"></div>
-                  <div class="banner-small"></div>
-                  <div class="banner-small"></div>
-                  <div class="banner-small"></div>
-                </div>
-              </div>
+        <div class="col-xs-6">
+          <button class="accordion">About <%= @space.name %></button>
+          <div class="panel">
+            <p>Lorem ipsum...</p>
+          </div>
 
-              <div class="row text-center">
-                <div class="col-xs-6">
-                  <h3>Your Host</h3>
-                  <img src="https://unsplash.it/400/300" alt="user" class="avatar-bordered">
-                  <br>
-                <%= @space.name %>
-
-                  <br>
-                  Apple Inc
-                  <br>
-                  <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-
-                </div>
-                <div class="col-xs-6">
-                  <button class="accordion">About <%= @space.name %></button>
-                  <div class="panel">
-                    <p>Lorem ipsum...</p>
-                  </div>
-
-                  <button class="accordion">What's available?</button>
-                  <div class="panel">
-                    <p>Lorem ipsum...</p>
-                  </div>
-
-                  <button class="accordion">Terms & Conditions</button>
-                  <div class="panel">
-                    <p>Lorem ipsum...</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-4">
-            <div class="content"></div>
-            <%= render "booking_form" %>
+          <button class="accordion">What's available?</button>
+          <div class="panel">
+            <div class="row">
+            <% if @space.reception %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.wifi %>
+              <div class="col-xs-4"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.event_space %>
+              <div class="col-xs-4"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.security %>
+              <div class="col-xs-4"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.bike_storage %>
+              <div class="col-xs-4"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.phone_booth %>
+              <div class="col-xs-4"><i class="fa fa-quora fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.kitchen %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.lockers %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.cafe_restaurant %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.showers %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.meeting_room %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.always_open %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
+              <% if @space.refreshment %>
+              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+              <% end %>
             </div>
           </div>
+
+          <button class="accordion">Terms & Conditions</button>
+          <div class="panel">
+            <p>Lorem ipsum...</p>
+          </div>
         </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="content"></div>
+      <%= render "booking_form" %>
+    </div>
+  </div>
+
+
+</div>
