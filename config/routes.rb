@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # get "/dashboard", to: "users#dashboard"
   get "/about", to: "pages#about"
-  resources :spaces
-    resources :tables, only: [:index, :show] do
-      resources :bookings, only: [:index, :show]
-    end
+  resources :spaces do
+    resources :bookings, only: [:index, :show]
+    resources :tables, only: [:index]
+  end
 end

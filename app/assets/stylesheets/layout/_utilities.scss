@@ -24,8 +24,14 @@
   background: #3b5998;
 }
 
-// hover color
-
-a:hover {
+//link color
+a {
+  text-decoration: none;
   color: $desk-red;
+}
+
+// hover color
+a:hover {
+  text-decoration: none;
+  color: $desk-darkblue;
 }
