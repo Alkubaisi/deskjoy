@@ -2,13 +2,17 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-4">
-       <fieldset>
-  <legend>Personalia:</legend>
-  Name: <input type="text"><br>
-  Email: <input type="text"><br>
-  Date of birth: <input type="text">
- </fieldset>
+    <div class="col-xs-12 col-md-6">
+
+   <p class="budget">What is your budget?</p>
+<label for="range">
+      <input type="range" name="range" id="range" min="0" max="300" step="5" value="175"/>
+</label>
+ <output for="range" class="output"></output>
+
+
+
+
 
     </div>
 
@@ -16,48 +20,29 @@
 
 
 
-    <div class="col-xs-12 col-md-8">
-      <div class="col-xs-12 col-md-4">
-
-
-
-
-
+    <div class="col-xs-12 col-md-6">
+     <div class="list-inline checkboxlist">
 
 
         <ul class="cheklist">
-        <li>  <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" /><label for="checkbox-1-1"></label>preciption</li>
+         <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" /><label for="checkbox-1-1">preciption</label>
 
-        <li>  <input type="checkbox" id="checkbox-1-2" class="regular-checkbox" /><label for="checkbox-1-2"></label>security</li>
-        <li>  <input type="checkbox" id="checkbox-1-3" class="regular-checkbox" /><label for="checkbox-1-3"></label>Event space</li>
-        <li><input type="checkbox" id="checkbox-1-4" class="regular-checkbox" /><label for="checkbox-1-4"></label> Bike storage </li>
-        <li>  <input type="checkbox" id="checkbox-1-5" class="regular-checkbox" /><label for="checkbox-1-5"></label>Phone booth</li>
-</ul>
-      </div>
+         <input type="checkbox" id="checkbox-1-2" class="regular-checkbox" /><label for="checkbox-1-2">security</label>
+         <input type="checkbox" id="checkbox-1-3" class="regular-checkbox" /><label for="checkbox-1-3">Event space</label>
+        <li><input type="checkbox" id="checkbox-1-4" class="regular-checkbox" /><label for="checkbox-1-4">Bike storage</label>
+         <input type="checkbox" id="checkbox-1-5" class="regular-checkbox" /><label for="checkbox-1-5">Phone booth</label>
+   <input type="checkbox" id="checkbox-1-10" class="regular-checkbox" /><label for="checkbox-1-10">meeting room</label>
+         <input type="checkbox" id="checkbox-1-11" class="regular-checkbox" /><label for="checkbox-1-11">24 Hours</label>
+         <input type="checkbox" id="checkbox-1-12" class="regular-checkbox" /><label for="checkbox-1-12">refreshment</label>
 
-
-
-  <div class="col-xs-12 col-md-4">
-        <ul class="cheklist">
-  <li>  <input type="checkbox" id="checkbox-1-10" class="regular-checkbox" /><label for="checkbox-1-10"></label>meeting room</li>
-        <li>  <input type="checkbox" id="checkbox-1-11" class="regular-checkbox" /><label for="checkbox-1-11"></label>24 Hours</li>
-        <li>  <input type="checkbox" id="checkbox-1-12" class="regular-checkbox" /><label for="checkbox-1-12"></label>refreshment</li>
-</ul>
-      </div>
-
-
-
-
-      <div class="col-xs-12 col-md-4">
-      <ul class="cheklist2">
-     <li>  <input type="checkbox" id="checkbox-1-6" class="regular-checkbox" /><label for="checkbox-1-6"></label>kitchen</li>
-        <li>  <input type="checkbox" id="checkbox-1-7" class="regular-checkbox" /><label for="checkbox-1-7"></label>Cafe Restaurant</li>
-        <li>  <input type="checkbox" id="checkbox-1-8" class="regular-checkbox" /><label for="checkbox-1-8"></label>Wifi</li>
-        <li>  <input type="checkbox" id="checkbox-1-9" class="regular-checkbox" /><label for="checkbox-1-9"></label>showers</li>
+      <input type="checkbox" id="checkbox-1-6" class="regular-checkbox" /><label for="checkbox-1-6">kitchen</label>
+         <input type="checkbox" id="checkbox-1-7" class="regular-checkbox" /><label for="checkbox-1-7">Cafe Restaurant</label>
+         <input type="checkbox" id="checkbox-1-8" class="regular-checkbox" /><label for="checkbox-1-8">Wifi</label>
+         <input type="checkbox" id="checkbox-1-9" class="regular-checkbox" /><label for="checkbox-1-9">showers</label>
 
      </ul>
       </div>
-
+</div>
     </div>
 
 
@@ -74,23 +59,37 @@
 
 <div class="container-fluid not-padded">
   <% @spaces.each do |space|  %>
-  <div class="col-xs-6 col-md-3 not-padded">
 
-  <div class="space-card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= cl_image_path space.photos.first.path %>);">
+  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 not-padded">
+       <div class="hovereffect">
 
-  <div class="cardtitle">
-    <h1>  <%= space.name %>
+<div class="space-card">
+  <div class="image1" style="background-image: linear-gradient(rgba(39,40,34,0),rgba(39,40,34,1)), url(<%= cl_image_path space.photos.first.path %>);">
+
+
+
+
+
+ <div class="cardtitle"><h3> <%= space.name %></h3></div>
+ <div class="cardindustry"><p><%= space.industry %></p></div>
+
+        <div class="overlay">
+            <ul class="list-inline ulcard">
+             <li><i class="fa fa-twitter  fa-2x" aria-hidden="true"></i></li>
+             <li><i class="fa fa-facebook-square  fa-2x" aria-hidden="true"></i></li>
+           </ul>
+           <p class="pinfo"><%= space.company_info.split(" ")[0..15].join(" ") %>...</p>
+
+           <%= link_to "View", space, class: "info" %>
+        </div>
+
+    </div>
+</div>
   </div>
 
-
-
-
-  </div>
   </div>
   <% end %>
 </div>
-
-
 
 
 

@@ -18,6 +18,7 @@ class Space < ApplicationRecord
 
   validates :name, presence: true
   validates :address, presence: true
+  validates :location, presence: true
   validates :industry, presence: true, inclusion: { in: INDUSTRYLIST }
 
   validates :company_info, presence: true
