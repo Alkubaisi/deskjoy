@@ -1,0 +1,24 @@
+#exTab1 .tab-content {
+  color : white;
+  background-color: #D2D0D1;
+  padding : 5px 15px;
+}
+
+#exTab1 .nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  div {
+    text-align: center;
+    flex: 0 0 calc(100% / 3);
+    background: $desk-gray;
+    padding: 20px;
+  }
+
+  div.active {
+    background-color: #F2D0D1;
+  }
+}
+
+

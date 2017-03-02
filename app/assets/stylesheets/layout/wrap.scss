@@ -1,3 +1,9 @@
 #wrap{
   background-color: rgba(206, 211, 220, 0.3);
 }
+
+.space-feature-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
