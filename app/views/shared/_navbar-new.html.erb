@@ -1,0 +1,82 @@
+<div class="navbar-wagon">
+   <!-- Logo -->
+  <div class="navbar-logo">
+    <%= link_to root_path do %>
+    <%= image_tag "logo.png" %>
+    <% end %>
+  </div>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <!-- Search form -->
+    <form action="/spaces" class="navbar-wagon-search">
+      <input type="text" class="navbar-wagon-search-input" placeholder="Search for offices">
+      <button type="submit" class="navbar-wagon-search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+
+    <% if user_signed_in? %>
+    <!-- Text link -->
+    <div class="navbar-wagon-item navbar-wagon-link">
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    <%= link_to "Desks", "#" %>
+    <%= link_to "Contact us", "#" %>
+    <%= link_to "About us", "#" %>
+    </div>
+
+<%= link_to '#', class: "navbar-wagon-item navbar-wagon-link" do %>
+    <div class="badge-container">
+      <i class="fa fa-envelope-o"></i>
+      <div class="badge badge-blue"><%= current_user.spaces.select{|space| space.bookings.where(status: 'pending')}.count %></div>
+    </div>
+  <% end %>
+    <!-- Text link -->
+
+    <!-- Notification link-->
+    <a href="" class="navbar-wagon-item navbar-wagon-link">
+      <div class="badge-container">
+        <i class="fa fa-envelope-o"></i>
+        <div class="badge badge-blue">3</div>
+      </div>
+    </a>
+
+    <!-- Profile picture and dropdown -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%= link_to 'Profile', '#' %></li>
+        <li><%= link_to 'Dashboard', '#' %></li>
+        <li><%= link_to 'Log out', destroy_user_session_path %></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Button (call-to-action) -->
+    <%= link_to 'Rent your space', new_space_path, class: 'navbar-wagon-item navbar-wagon-button btn btn-primary' %>
+
+  <% else %>
+
+  <div class="navbar-right hidden-xs hidden-sm">
+    <%= link_to "Sign up", new_user_registration_path %>
+    <%= link_to "Log in", new_user_session_path %>
+    <%= link_to "Desks", "#" %>
+    <%= link_to "Contact us", "#" %>
+    <%= link_to "Abassert_redirected_to parent_child_path(@parent, @child)out us", "#" %>
+  </div>
+
+  <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%= link_to "Some mobile link", "#" %></li>
+        <li><%= link_to "Contact ", "#" %></li>
+        <li><%= link_to "About us", "#" %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<%end%>
