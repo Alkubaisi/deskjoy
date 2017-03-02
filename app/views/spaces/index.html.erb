@@ -21,9 +21,10 @@
 
 
     <div class="col-xs-12 col-md-6">
+
      <div class="list-inline checkboxlist">
 
-
+<h2>Facilities</h2>
         <ul class="cheklist">
          <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" /><label for="checkbox-1-1">preciption</label>
 
@@ -55,9 +56,7 @@
 </div>
 
 
-<br>
-
-<div class="container-fluid not-padded">
+<div class="container-fluid not-padded ">
   <% @spaces.each do |space|  %>
 
   <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 not-padded">
@@ -70,7 +69,7 @@
 
 
 
- <div class="cardtitle"><h3> <%= space.name %></h3></div>
+ <div class="cardtitle"><h3> <%= space.company_name %></h3></div>
  <div class="cardindustry"><p><%= space.industry %></p></div>
 
         <div class="overlay">
