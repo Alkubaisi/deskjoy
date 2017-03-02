@@ -6,4 +6,6 @@
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
+//= require slider
 //= require_tree .
+
