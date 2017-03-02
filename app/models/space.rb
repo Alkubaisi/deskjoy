@@ -17,10 +17,6 @@ class Space < ApplicationRecord
   has_many :tables, dependent: :destroy
 
   validates :company_name, presence: true
-<<<<<<< HEAD
-=======
-
->>>>>>> f091e429d301ac65c993e1cf8f532a8eb975acb3
   validates :address, presence: true
   validates :industry, presence: true, inclusion: { in: INDUSTRYLIST }
 
