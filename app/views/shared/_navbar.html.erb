@@ -7,16 +7,17 @@
     <% end %>
   </div>
 
-
   <% if current_user %>
+
   <div class="navbar-right">
     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
     <%= link_to "Desks", "#" %>
     <%= link_to "Contact us", "#" %>
     <%= link_to "About us", "#" %>
   </div>
+
   <% else %>
-  <!-- Right section -->
+
   <div class="navbar-right">
     <%= link_to "Sign up", new_user_registration_path %>
     <%= link_to "Log in", new_user_session_path %>
@@ -24,6 +25,7 @@
     <%= link_to "Contact us", "#" %>
     <%= link_to "About us", "#" %>
   </div>
+
   <% end %>
 
 </div>
