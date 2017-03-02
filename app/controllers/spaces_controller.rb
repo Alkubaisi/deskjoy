@@ -9,10 +9,9 @@ class SpacesController < ApplicationController
     @booking = Booking.new
   end
 
-
-
   def edit
   end
+
   def update
     respond_to do |format|
       if @space.update(space_params)

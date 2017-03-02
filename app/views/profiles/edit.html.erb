@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
+ <div class="row">
+   <div class="col-xs-12 col-md-6 col-md-offset-3">
 
 
 <h1>Edit Profile</h1>
@@ -9,16 +9,16 @@
 
 
 <%= simple_form_for @user, url: profile_path(@user) do |f| %>
-  <%= f.input :first_name, input_html: { placeholder: "First Name" } %>
-  <%= f.input :last_name, input_html: { placeholder: "Last Name" } %>
-  <%= f.input :linkedin, input_html: { placeholder: "Linkedin URL" }%>
-  <%= f.input :twitter, input_html: { placeholder: "Twitter URL" }%>
-  <%= f.input :info, as: :text, input_html: { placeholder: "About Me" }%>
+ <%= f.input :first_name, input_html: { placeholder: "First Name" } %>
+ <%= f.input :last_name, input_html: { placeholder: "Last Name" } %>
+ <%= f.input :linkedin, input_html: { placeholder: "Linkedin URL" }%>
+ <%= f.input :twitter, input_html: { placeholder: "Twitter URL" }%>
+ <%= f.input :info, as: :text, input_html: { placeholder: "About Me" }%>
 
-  <%= f.input :photo, as: :attachinary %>
-  <br>
+ <%= f.input :photo, as: :attachinary %>
+ <br>
 
-  <%= f.submit "Update your public profile" %>
+ <%= f.submit "Update your public profile" %>
 <% end %>
 
 </div>
