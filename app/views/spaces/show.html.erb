@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-sm-8">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-1">
       <div class="row">
         <div class="col-xs-12">
           <h1><%= @space.company_name %></h1>
@@ -43,47 +43,43 @@
         </div>
       </div>
 
-      <div class="row" id="wrap">
-        <div class="col-xs-12">
-          <div class="space-feature-flex">
-            <div class="space-feature-flex">
-              <i class="fa fa-keyboard-o fa-3x" aria-hidden="true"></i>
-              <h4>Hotdesk</h4>
-            </div>
-            <div class="space-feature-flex">
-              <i class="fa fa-keyboard-o fa-3x" aria-hidden="true"></i>
-              <h4>Hotdesk</h4>
-            </div>
-            <div class="space-feature-flex">
-              <i class="fa fa-keyboard-o fa-3x" aria-hidden="true"></i>
-              <h4>Hotdesk</h4>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="row">
         <div class="col-xs-12">
           <div id="exTab1">
-            <ul  class="nav nav-pills">
-              <li class="active">
-                <a  href="#1a" data-toggle="tab"><h4>Overview</h4></a>
-              </li>
-              <li>
-                <a href="#2a" data-toggle="tab"><h4>Amenities</h4></a>
-              </li>
-              <li>
-                <a href="#3a" data-toggle="tab"><h4>About the Host</h4></a>
-              </li>
-              <li>
-                <a href="#4a" data-toggle="tab"><h4>What desks are available?</h4></a>
-              </li>
-            </ul>
+            <div class="nav nav-pills">
+              <div class="active">
+                <a href="#1a" data-toggle="tab"><span>About the Host</span></a>
+              </div>
+              <div>
+                <a href="#2a" data-toggle="tab"><span>Amenities</span></a>
+              </div>
+              <div>
+                <a href="#3a" data-toggle="tab"><span>See available desks</span></a>
+              </div>
+            </div>
 
             <div class="tab-content clearfix text-center">
               <div class="tab-pane active" id="1a">
-                <p>Content's background color is the same for the tab</p>
+                <div class="row text-center">
+                  <div class="col-xs-6">
+                    <h3>Your Host</h3>
+                    <img src="https://unsplash.it/400/300" alt="user" class="avatar-bordered">
+                    <br>
+                    <%= @space.company_name %>
+                    <br>
+                    Apple Inc
+                    <br>
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-xs-6">
+                    <h4>About Us</h4>
+                    <%= @space.company_info %>
+
+                  </div>
+                </div>
               </div>
+
               <div class="tab-pane" id="2a">
                 <div class="row">
                   <% if @space.reception %>
@@ -127,35 +123,38 @@
                   <% end %>
                 </div>
               </div>
+
               <div class="tab-pane" id="3a">
-                <p>We aplied clearfix to the tab-content to rid of the gap between the tab and the content</p>
-              </div>
-              <div class="tab-pane" id="4a">
-                <p>We use css to change the background color of the content to be equal to the tab</p>
+                <table class="table">
+                  <thead class="thead-inverse">
+                    <tr>
+                      <th>Title</th>
+                      <th>Type</th>
+                      <th>Price</th>
+                      <th>Available</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @space.tables.each do |table| %>
+                    <tr>
+                      <td><%= table.title %></td>
+                      <td><%= table.desk_type %></td>
+                      <td><%= table.price %></td>
+                      <td>Yes</td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row text-center">
-        <div class="col-xs-6">
-          <h3>Your Host</h3>
-          <img src="https://unsplash.it/400/300" alt="user" class="avatar-bordered">
-          <br>
-          <%= @space.company_name %>
-          <br>
-          Apple Inc
-          <br>
-          <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-        </div>
-        <div class="col-xs-6">
-          Hello
-        </div>
-      </div>
+
     </div>
 
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-1">
       <div class="content"></div>
       <%= render "booking_form" %>
     </div>
