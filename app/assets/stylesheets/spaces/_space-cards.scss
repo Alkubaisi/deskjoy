@@ -117,6 +117,7 @@ background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
 }
 
 .hovereffect:hover h2,.hovereffect:hover a.info,.hovereffect:hover p{
+  margin-top: -10px;
   opacity: 1;
   filter: alpha(opacity=50);
   -ms-transform: translatey(0);
