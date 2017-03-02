@@ -1,8 +1,8 @@
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
-<ol class="carousel-indicators">
+  <ol class="carousel-indicators">
     <% @space.photos.each do |slide| %>
-      <li data-target="#carousel-example-generic" data-slide-to=#{slide) class="#{'active' if slide == 0}"></li>
+    <li data-target="#carousel-example-generic" data-slide-to=#{slide) class="#{'active' if slide == 0}"></li>
     <% end %>
   </ol>
 
@@ -12,7 +12,7 @@
     <div class="item <%= 'active' if index == 0 %>">
       <div class="carousel-image" style="background-image: url(<%= cl_image_path photo.path %>)"></div>
       <div class="carousel-caption">
-        test
+        Hello
       </div>
     </div>
     <% end %>
@@ -28,8 +28,9 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<div class="container-fluid">
 
+
+<div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-8">
       <div class="row">
@@ -42,47 +43,100 @@
         </div>
       </div>
 
-      <div class="container-fluid" id="wrap">
-        <ol class="list list-inline">
-          <li><i class="fa fa-keyboard-o fa-fw" aria-hidden="true"></i>Hotdesk: <%# @space.industry%></li>
-          <li><i class="fa fa-coffee fa-fw" aria-hidden="true"></i>Industury: <%= @space.industry%></li>
-          <li><i class="fa fa-usd fa-fw" aria-hidden="true"></i>Price: <%# @space.industry%></li>
-        </ol>
-      </div>
-<div>
-<h4 style="text-align: center;"></h4>
-<div id="exTab1" class="container" style="text-align: center;">
-<ul  class="nav nav-pills">
-      <li class="active">
-        <a  href="#1a" data-toggle="tab"><h4>Overview</h4></a>
-      </li>
-      <li><a href="#2a" data-toggle="tab"><h4>Amenities</h4></a>
-      </li>
-      <li><a href="#3a" data-toggle="tab"><h4>About the Host</h4></a>
-      </li>
-      <li><a href="#4a" data-toggle="tab"><h4>What desks are available?</h4></a>
-      </li>
-    </ul>
-
-      <div class="tab-content clearfix">
-        <div class="tab-pane active" id="1a">
-          <p>Content's background color is the same for the tab</p>
-        </div>
-        <div class="tab-pane" id="2a">
-          <p>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</p>
-        </div>
-        <div class="tab-pane" id="3a">
-          <p>We aplied clearfix to the tab-content to rid of the gap between the tab and the content</p>
-        </div>
-          <div class="tab-pane" id="4a">
-          <p>We use css to change the background color of the content to be equal to the tab</p>
+      <div class="row" id="wrap">
+        <div class="col-xs-12">
+          <div class="space-feature-flex">
+            <div class="space-feature-flex">
+              <i class="fa fa-keyboard-o fa-3x" aria-hidden="true"></i>
+              <h4>Hotdesk</h4>
+            </div>
+            <div class="space-feature-flex">
+              <i class="fa fa-keyboard-o fa-3x" aria-hidden="true"></i>
+              <h4>Hotdesk</h4>
+            </div>
+            <div class="space-feature-flex">
+              <i class="fa fa-keyboard-o fa-3x" aria-hidden="true"></i>
+              <h4>Hotdesk</h4>
+            </div>
+          </div>
         </div>
       </div>
-  </div>
 
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="exTab1">
+            <ul  class="nav nav-pills">
+              <li class="active">
+                <a  href="#1a" data-toggle="tab"><h4>Overview</h4></a>
+              </li>
+              <li>
+                <a href="#2a" data-toggle="tab"><h4>Amenities</h4></a>
+              </li>
+              <li>
+                <a href="#3a" data-toggle="tab"><h4>About the Host</h4></a>
+              </li>
+              <li>
+                <a href="#4a" data-toggle="tab"><h4>What desks are available?</h4></a>
+              </li>
+            </ul>
 
-</div>
-
+            <div class="tab-content clearfix text-center">
+              <div class="tab-pane active" id="1a">
+                <p>Content's background color is the same for the tab</p>
+              </div>
+              <div class="tab-pane" id="2a">
+                <div class="row">
+                  <% if @space.reception %>
+                  <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.wifi %>
+                  <div class="col-xs-4"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.event_space %>
+                  <div class="col-xs-4"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.security %>
+                  <div class="col-xs-4"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.bike_storage %>
+                  <div class="col-xs-4"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.phone_booth %>
+                  <div class="col-xs-4"><i class="fa fa-quora fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.kitchen %>
+                  <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.lockers %>
+                  <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.cafe_restaurant %>
+                  <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.showers %>
+                  <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.meeting_room %>
+                  <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.always_open %>
+                  <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                  <% if @space.refreshment %>
+                  <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
+                  <% end %>
+                </div>
+              </div>
+              <div class="tab-pane" id="3a">
+                <p>We aplied clearfix to the tab-content to rid of the gap between the tab and the content</p>
+              </div>
+              <div class="tab-pane" id="4a">
+                <p>We use css to change the background color of the content to be equal to the tab</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="row text-center">
         <div class="col-xs-6">
@@ -95,66 +149,10 @@
           <br>
           <i class="fa fa-linkedin-square" aria-hidden="true"></i>
         </div>
-
         <div class="col-xs-6">
-          <button class="accordion">About <%= @space.company_name %></button>
-          <div class="panel">
-            <p>Lorem ipsum...</p>
-          </div>
-
-          <button class="accordion">What's available?</button>
-          <div class="panel">
-            <div class="row">
-            <% if @space.reception %>
-              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.wifi %>
-              <div class="col-xs-4"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.event_space %>
-              <div class="col-xs-4"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.security %>
-              <div class="col-xs-4"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.bike_storage %>
-              <div class="col-xs-4"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.phone_booth %>
-              <div class="col-xs-4"><i class="fa fa-quora fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.kitchen %>
-              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.lockers %>
-              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.cafe_restaurant %>
-              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.showers %>
-              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.meeting_room %>
-              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.always_open %>
-              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-              <% if @space.refreshment %>
-              <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-              <% end %>
-            </div>
-          </div>
-
-          <button class="accordion">Terms & Conditions</button>
-          <div class="panel">
-            <p>Lorem ipsum...</p>
-          </div>
+          Hello
         </div>
-
       </div>
-
     </div>
 
     <div class="col-xs-12 col-sm-4">
@@ -162,6 +160,4 @@
       <%= render "booking_form" %>
     </div>
   </div>
-
-
 </div>
