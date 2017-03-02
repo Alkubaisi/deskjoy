@@ -1,1 +1,81 @@
-<h1><%= @user.first_name %></h1>
+<div class="container-fluid not-padded">
+
+  <div class="col-xs-12 col-md-12  not-padded ptopleft">
+    <div class="bg" style="background-image: linear-gradient(rgba(39,40,34,0),rgba(39,40,34,1)), url(<%= cl_image_path @user.spaces.last.photos.first.path %>); height: 300px;">
+
+    </div>
+
+
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="container">
+
+  <div class="col-xs-12 col-md-6 col-md-offset-3 botomleft">
+   <div class="photoname">
+    <% if @user.photo? %>
+    <%= cl_image_tag @user.photo.path, class: 'avatar-square' %>
+    <% end %>
+    <h2>"<%= @user.first_name %> <%= @user.last_name %>"</h2>
+
+<button class="btn btn-primary" type="button">
+  Messages <span class="badge">4</span>
+</button>
+
+</div>
+
+
+
+    <div class="aboutme">
+  <h3>About me:</h3>
+  <hr>
+   <% if @user.info? %>
+  <p><%= @user.info %></p>
+  <% end %>
+</div>
+
+
+<div class="col-xs-12 col-md-6">
+    <div class="socialmedialist">
+   <ul class="list-inline">
+    <% if @user.twitter? %>
+    <li class="twittericon"> <%= link_to "http://twitter.com/#{@user.twitter}" do %>
+      <i class="fa fa-twitter  fa-2x" aria-hidden="true"></i>
+      <% end %></li><% end %>
+<!-- end twitter -->
+   <% if @user.linkedin? %>
+      <li class="linkdinicon"> <%= link_to @user.linkedin do %>
+      <i class="fa fa-linkedin  fa-2x" aria-hidden="true"></i>
+      <% end %></li><% end %>
+<!-- end linkden -->
+          <% if @user.facebook? %>
+      <li class="fb"><%= link_to "http://facebook.com/#{@user.facebook}" do %>
+      <i class="fa fa-facebook  fa-2x" aria-hidden="true"></i>
+      <% end %></li><% end %>
+    </ul>
+
+  </div>
+</div>
+<div class="col-xs-12 col-md-6">  <div class="emailnumber">
+<ul class="list-inline socialmedialist">
+  <li><i class="fa fa-envelope-o" aria-hidden="true"></i> : <%= @user.email %> </li>
+  <li><i class="fa fa-phone" aria-hidden="true"></i> : <%= @user.phonenumber %></li>
+  <li></li>
+</ul>
+</div> </div>
+
+
+
+
+
+
+</div>
+</div>
+
+
