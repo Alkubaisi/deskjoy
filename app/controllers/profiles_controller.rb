@@ -19,6 +19,6 @@ end
  private
 
  def profile_params
-   params.require(:user).permit(:first_name, :last_name, :twitter, :linkedin, :photo, :info)
+   params.require(:user).permit(:first_name, :last_name, :twitter, :linkedin, :photo, :info, :facebook, :phonenumber)
  end
 end
