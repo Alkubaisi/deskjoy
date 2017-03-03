@@ -28,8 +28,7 @@
 
   <%= link_to '#', class: "navbar-deskjoy-item navbar-deskjoy-link" do %>
     <div class="badge-container">
-      <i class="fa fa-envelope-o"></i>
-      <div class="badge badge-blue"><%= current_user.spaces.select{|space| space.bookings.where(status: 'pending')}.count %></div>
+
     </div>
   <% end %>
 
