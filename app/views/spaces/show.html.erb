@@ -45,26 +45,39 @@
         </div>
       </div>
 
+<div class="tabwrraper">
 
-      <div class="row">
-        <div class="col-xs-12">
-          <div id="exTab1">
-            <div class="nav nav-pills">
-              <div class="active">
-                <a href="#1a" data-toggle="tab"><span>About the Host</span></a>
-              </div>
-              <div>
-                <a href="#2a" data-toggle="tab"><span>Amenities</span></a>
-              </div>
-              <div>
-                <a href="#3a" data-toggle="tab"><span>See available desks</span></a>
-              </div>
-            </div>
 
-            <div class="tab-content clearfix text-center">
-              <div class="tab-pane active" id="1a">
-                <div class="row text-center">
-                  <div class="col-xs-6">
+
+
+
+
+
+
+
+
+<!-- starrrrrrt -->
+
+
+<div class="w3-container">
+
+
+  <div class="w3-row">
+    <a href="javascript:void(0)" onclick="openCity(event, 'Host');">
+      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">About the Host</div>
+    </a>
+    <a href="javascript:void(0)" onclick="openCity(event, 'Amenities');">
+      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Amenities</div>
+    </a>
+    <a href="javascript:void(0)" onclick="openCity(event, 'Tables');">
+      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Available desks</div>
+    </a>
+  </div>
+
+  <div id="Host" class="w3-container city" style="display:none">
+
+
+
                     <h3>Your Host</h3>
                     <%= cl_image_tag @space.user.photo.path, class: "avatar-bordered" %>
                     <br>
@@ -75,18 +88,12 @@
                     <%= link_to @space.user.linkedin do %>
                       <i class="fa fa-linkedin-square" aria-hidden="true"></i>
                     <% end %>
-                  </div>
-                  <div class="col-xs-6">
-                    <h4>About me</h4>
-                    <%= @space.user.info %>
-                    <h4>About us</h4>
-                    <%= @space.company_info %>
-                  </div>
-                </div>
-              </div>
 
-              <div class="tab-pane" id="2a">
-                <div class="row">
+
+  </div>
+
+  <div id="Amenities" class="w3-container city" style="display:none">
+ <div class="row">
                   <% if @space.reception %>
                   <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
                   <% end %>
@@ -127,10 +134,10 @@
                   <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
                   <% end %>
                 </div>
-              </div>
+  </div>
 
-              <div class="tab-pane" id="3a">
-                <table class="table text-center">
+  <div id="Tables" class="w3-container city" style="display:none">
+    <table class="table text-center">
                   <thead>
                     <tr>
 
@@ -151,15 +158,35 @@
                     <% end %>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  </div>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-border-red";
+}
+</script>
+
+<!-- end -->
+
+
+
+
+
 
 
     </div>
-
+</div>
     <div class="col-xs-12 col-sm-4 col-sm-offset-1">
       <div class="content"></div>
       <%= render "booking_form" %>
