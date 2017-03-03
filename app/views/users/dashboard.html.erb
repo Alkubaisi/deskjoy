@@ -1,38 +1,45 @@
-<br>
-<br>
-<br>
 
-
-
+<div class="dwrapper">
   <div class="container">
     <div class="row">
-      <!-- start of top divs -->
-      <div class="col-xs-12 col-md-4">
-
-
- <% if @user.photo? %>
- <%= cl_image_tag @user.photo.path, class: 'avatar-square' %>
-<% end %>
-
-
-        <ul class="list-inline">
-          <li> <%= link_to edit_user_registration_path(current_user) do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile
-          </li> <% end %>
-        </ul>
-
-
-</div>
+      <!-- firs paragraph -->
       <div class="col-xs-12 col-md-4">
        <h3> <strong style="text-transform: capitalize; "> <%= current_user.first_name %> <%= current_user.last_name %></strong></h3>
-       <ul >
-        <li>Email: <%= current_user.email %></li>
-        <li>Date Joined: <%= current_user.created_at %></li>
 
+       <% if @user.photo? %>
+       <%= cl_image_tag @user.photo.path, class: 'avatar-large' %>
+       <% end %>
+
+
+       <ul class="list-inline">
+        <li> <%= link_to edit_profile_path(current_user) do %>
+          <i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile
+        </li> <% end %>
       </ul>
 
+
     </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <br>
+    <br>
+    <br>
+
+    <ul >
+      <li>Email: <%= current_user.email %></li>
+      <li>Date Joined: <%= current_user.created_at %></li>
+
+    </ul>
+
   </div>
+</div>
 </div>
 
 <br>
@@ -44,23 +51,23 @@
 <div class="container">
   <div class="row">
 
-      <h4><strong>My Listings</strong></h4>
+    <h4><strong>My Listings</strong></h4>
 
-      <% current_user.spaces.each do |space| %>
-      <div class="col-xs-12 col-md-4">
-<div class="card" style="background-image: url('<%= cl_image_path space.photos.first.path, height: 300, width: 400, crop: :fill %>');">
-<h3><%= space.company_name %></h3>
+    <% current_user.spaces.each do |space| %>
+    <div class="col-xs-12 col-md-4">
+      <div class="card" style="background-image: url('<%= cl_image_path space.photos.first.path, height: 300, width: 400, crop: :fill %>');">
+        <h3><strong><%= space.company_name %></strong></h3>
 
-         <br>
-         <br>
-         <br>
-         <div class="card-description">
-           <p><%= space.industry %></p>
-          <p><%= space.company_info.split(" ")[0..15].join(" ") %></p>
-        </div>
-        <%= link_to "#", space, class: "card-link" %>
-      </div>
-      <ul class="list-inline">
+        <br>
+        <br>
+        <br>
+        <div class="card-description">
+         <p><%= space.industry %></p>
+         <p><%= space.company_info.split(" ")[0..15].join(" ") %></p>
+       </div>
+       <%= link_to "#", space, class: "card-link" %>
+     </div>
+     <ul class="list-inline">
 
        <li>
         <%= link_to edit_space_path(space) do %>
@@ -84,25 +91,28 @@
 </div>
 <!-- end of card -->
 
-  </div>
+</div>
 </div>
 
 <br>
 <br>
 
 
-<!-- storages listing-->
+<!-- bookings listing-->
 <div class="container">
   <div class="row">
-<div class="col-xs-12 col-md-4">
-  <h4><strong>My Bookings</strong></h4>
-  <% current_user.bookings.each do |book| %>
+    <div class="col-xs-12 col-md-4">
+      <h4><strong>My Bookings</strong></h4>
+      <% current_user.bookings.each do |book| %>
+      <div class="col-xs-12 col-md-4">
+      <div class="bcard" style="background-image: url('<%= cl_image_path space.photos.first.path, height: 300, width: 400, crop: :fill %>');">
 
-   <% end %>
+      <% end %>
 
+    </div>
   </div>
+
 </div>
-
-  </div>
+</div>
 </div>
 
