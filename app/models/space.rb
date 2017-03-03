@@ -23,5 +23,5 @@ class Space < ApplicationRecord
   validates :company_info, presence: true
   # validates :photos, presence: true
 
-  has_attachments :photos, maximum: 4
+  has_attachments :photos, maximum: 3
 end

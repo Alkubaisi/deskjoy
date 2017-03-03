@@ -8,16 +8,16 @@
 <h2 align="center">DeskJoy! Share a workspace within your industry!</h2>
 <div class="container">
   <div class="row">
-    <% 3.times do %>
+    <% @spaces.each do |space| %>
     <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "bg-card.jpg" %>');">
-        <div class="card-category">Popular</div>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path space.photos.first.path %>');">
+        <div class="card-category">  </div>
         <div class="card-description">
           <h2>Some stuff</h2>
           <p>Very cool stuff, useful and smart</p>
         </div>
-        <img class="card-user avatar" src="user.jpg">
-        <a class="card-link" href="#" ></a>
+        <img class="card-user avatar" %= cl_image_path space.user.first.path %>
+      <%= link_to "", space_path(space), class: "card-link" %>
       </div>
     </div>
     <% end %>
