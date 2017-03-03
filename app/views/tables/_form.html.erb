@@ -1,0 +1,33 @@
+
+<div class="newspacewrapper">
+
+<div class="toppic">
+  <h1>Add Space </h1>
+  <p>
+
+
+please enter your details below, if you have questions you can reach us using the link provided.</p>
+<hr>
+</div>
+
+<div class="add-form">
+  <%= simple_form_for([@space, @table]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+     <%= f.input :price, input_html: { placeholder: "Company name", class: 'form-control input-lg' } %>
+    <%= f.input :desk_type, :input_html => { placeholder: "Desk type", class: 'input-lg' } %>
+
+
+    </div>
+
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, {class: "btn btn-primary" } %>
+  </div>
+  <% end %>
+</div>
+</div>

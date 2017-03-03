@@ -133,16 +133,17 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th class="text-center">Title</th>
-                      <th class="text-center">Type</th>
-                      <th class="text-center">Price</th>
-                      <th class="text-center">Available</th>
+
+
+                      <th>Type</th>
+                      <th>Price</th>
+                      <th>Available</th>
+
                     </tr>
                   </thead>
                   <tbody>
                     <% @space.tables.each do |table| %>
                     <tr>
-                      <td><%= table.title %></td>
                       <td><%= table.desk_type %></td>
                       <td><%= table.price %></td>
                       <td>Yes</td>
