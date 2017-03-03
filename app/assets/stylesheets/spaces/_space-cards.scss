@@ -1,40 +1,33 @@
 .space-card {
   height:300px;
-
-
-
 }
 
 .image1 {
   width: 100%;
   height:300px;
   background-size: cover;
- position: relative;
+  position: relative;
   border: 1px solid white;
-background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
-
+  background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
 
 }
-
 
 .cardtitle {
   position: absolute;
   bottom: 25px;
   left: 10px;
   color: white;
-   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-    text-transform: capitalize;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  text-transform: capitalize;
 }
 .cardindustry {
-    position: absolute;
+  position: absolute;
   bottom: 3px;
   left: 10px;
   color: white;
-   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-    text-transform: capitalize;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  text-transform: capitalize;
 }
-
-
 
 
 // effect start
@@ -85,7 +78,6 @@ background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
   padding: 10px;
 }
 
-
 .hovereffect a.info {
   text-decoration: none;
   display: inline-block;
@@ -131,12 +123,12 @@ background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
 }
 
 .pinfo {
-
-color: white;
-text-align: left;
-padding: 10px;
- text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: left;
+  padding: 10px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
+
 .ulcard {
   color: white;
   padding: 10px;

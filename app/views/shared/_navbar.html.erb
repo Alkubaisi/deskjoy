@@ -7,18 +7,49 @@
     <% end %>
   </div>
 
-  <% if current_user %>
+  <!-- Right Navigation -->
 
-  <div class="navbar-right">
+  <!-- Search form -->
+  <form action="/spaces" class="navbar-deskjoy-search">
+    <input type="text" class="navbar-deskjoy-search-input" placeholder="Search for offices">
+    <button type="submit" class="navbar-deskjoy-search-btn">
+      <i class="fa fa-search"></i>
+    </button>
+  </form>
+
+  <% if user_signed_in? %>
+
+  <div class="navbar-right hidden-xs hidden-sm">
     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
     <%= link_to "Desks", "#" %>
     <%= link_to "Contact us", "#" %>
-    <%= link_to "About us", "#" %>
+    <%= link_to "About us", about_path %>
   </div>
+
+  <%= link_to '#', class: "navbar-deskjoy-item navbar-deskjoy-link" do %>
+    <div class="badge-container">
+
+    </div>
+  <% end %>
+
+  <!-- Profile picture and dropdown -->
+  <div class="navbar-wagon-item">
+    <div class="dropdown">
+      <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+      <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
+        <li><%= link_to 'Profile', '#' %></li>
+        <li><%= link_to 'Dashboard', '#' %></li>
+        <li><%= link_to 'Log out', destroy_user_session_path %></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Button (call-to-action) -->
+  <%= link_to 'Rent your space', new_space_path, class: 'navbar-wagon-item navbar-wagon-button btn btn-primary' %>
 
   <% else %>
 
-  <div class="navbar-right">
+  <div class="navbar-right hidden-xs hidden-sm">
     <%= link_to "Sign up", new_user_registration_path %>
     <%= link_to "Log in", new_user_session_path %>
     <%= link_to "Desks", "#" %>
@@ -28,4 +59,16 @@
 
   <% end %>
 
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-deskjoy-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
+        <li><a href="#">Some mobile link</a></li>
+        <li><a href="#">Contact us</a></li>
+        <li><%= link_to "About us", about_path %></li>
+      </ul>
+    </div>
+  </div>
 </div>
+
