@@ -1,14 +1,18 @@
 <div class="container-fluid not-padded">
 
+<% if current_user.photo %>
+  <% photo_url = cl_image_path current_user.photo.path %>
+<% else %>
+  <% photo_url = 'https://www.moooi.com/sites/default/files/styles/large/public/product-images/random_detail.jpg?itok=ErJveZTY' %>
+<% end %>
   <div class="col-xs-12 col-md-12  not-padded ptopleft">
-    <div class="bg" style="background-image: linear-gradient(rgba(39,40,34,0),rgba(39,40,34,1)), url(<%= cl_image_path @user.spaces.last.photos.first.path %>); height: 300px;">
+    <div class="bg" style="background-image: linear-gradient(rgba(39,40,34,0),rgba(39,40,34,1)), url(<%= photo_url %>); height: 300px;>
 
     </div>
 
 
   </div>
-</div>
-</div>
+
 
 
 
@@ -26,7 +30,8 @@
 
 
 </div>
-
+</div>
+</div>
 
 
     <div class="aboutme">
@@ -82,7 +87,7 @@
 
 
 
-</div>
-</div>
+<!-- </div>
+ -->
 
 
