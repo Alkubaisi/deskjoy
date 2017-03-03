@@ -1,6 +1,6 @@
 <div class="container-fluid not-padded">
   <div class="col-xs-12 col-md-12  not-padded ptopleft">
-    <% if @user.spaces.last.photos.first %>
+    <% if @user.spaces.any? && @user.spaces.last.photos.any? && @user.spaces.last.photos.first %>
     <% photo_url = cl_image_path(@user.spaces.last.photos.first.path) %>
     <% else %>
     <% photo_url = image_path("wework2.jpg") %>
