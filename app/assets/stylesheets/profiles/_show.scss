@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
 .ptopleft {
   height: 200px;
   position: relative;
@@ -19,6 +19,7 @@
   // left: 20%;
   text-align: center;
    filter: blur(0.5px);
+   font-family: 'Yanone Kaffeesatz', sans-serif;
 
 
 }
@@ -59,20 +60,24 @@
 
 
 .socialmedialist {
-  text-align: center;
+
   text-decoration: none;
 }
 .twittericon a {
 color: #1DA1F2;
+text-shadow: 1px 1px 1px #000;
 }
 .linkdinicon a {
   color: #0077B5;
+  text-shadow: 1px 1px 1px #000;
 }
 .fb {
   color: #3B5998;
+  text-shadow: 1px 1px 1px #000;
 }
 
-.emailnumber {
-  text-align: left;
+.footerdiv {
+  text-align: left !important;
+
 }
 

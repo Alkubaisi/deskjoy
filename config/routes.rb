@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#dashboard"
   resources :spaces do
     resources :bookings, only: [:index, :show]
-    resources :tables, only: [:index]
+    resources :tables, only: [:index, :create, :edit, :update, :new]
   end
   resources :profiles, only: [:index, :show, :edit, :update]
 end
