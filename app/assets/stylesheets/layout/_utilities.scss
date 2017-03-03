@@ -28,15 +28,20 @@
   background: #3b5998;
 }
 
-//background-color
+//background-color & properties
 body {
   background-color: $desk-white;
+   margin:0;
 }
-
 //link color
 a {
   text-decoration: none;
   color: $desk-red;
+}
+// visited link
+
+a:visited {
+  text-decoration: none;
 }
 
 // hover color

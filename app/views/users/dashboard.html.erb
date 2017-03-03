@@ -105,7 +105,7 @@
       <h4><strong>My Bookings</strong></h4>
       <% current_user.bookings.each do |book| %>
       <div class="col-xs-12 col-md-4">
-      <div class="bcard" style="background-image: url('<%= cl_image_path space.photos.first.path, height: 300, width: 400, crop: :fill %>');">
+      <div class="bcard" style="background-image: url('<%= cl_image_path book.table.space.photos.first.path, height: 300, width: 400, crop: :fill %>');">
 
       <% end %>
 
