@@ -7,8 +7,6 @@
     <% end %>
   </div>
 
-  <!-- Right Navigation -->
-
   <!-- Search form -->
   <form action="/spaces" class="navbar-deskjoy-search">
     <input type="text" class="navbar-deskjoy-search-input" placeholder="Search for offices">
@@ -40,7 +38,7 @@
     <div class="dropdown">
       <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
       <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
-        <li><%= link_to 'Profile', profiles_path %></li>
+        <li><%= link_to 'Profile', profile_path(current_user) %></li>
         <li><%= link_to 'Dashboard', dashboard_path %></li>
         <li><%= link_to 'Log out', destroy_user_session_path %></li>
       </ul>
@@ -67,11 +65,11 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Contact us</a></li>
+        <li><%= link_to "See Spaces", spaces_path %></li>
+        <li><%= link_to "Contact us", "#" %></li>
         <li><%= link_to "About us", about_path %></li>
       </ul>
     </div>
   </div>
-</div>
 
+</div>

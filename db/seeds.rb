@@ -16,32 +16,32 @@ space5 = Space.create! user: ralph, company_name: "Wimbledon Common Road", addre
 space6 = Space.create! user: kit, company_name: "Clapham", address: "Northcote Road", industry: "Fashion Design", company_info: "A dynamic fashion design company with space to spare. We offer great workspace for serious entrepreneurs and coders. There are tons of available staff that are happy to answer any technical question you may have.", photos: [File.open("app/assets/images/fashion1.jpg", 'r'), File.open("app/assets/images/fashion2.jpg", 'r')], wifi: true, phone_booth: true, bike_storage: true
 
 
-table = Table.create! space: space1, title: "small table", desk_type: "hot desk", price: 34, description: "best table"
-table = Table.create! space: space1, title: "medium table", desk_type: "hot desk", price: 20, description: "productive table"
-table = Table.create! space: space1, title: "large table", desk_type: "fixed desk", price: 75, description: "table with a view"
-table = Table.create! space: space1, title: "extra large table", desk_type: "fixed desk", price: 100, description: "for the serious freelancer"
+table = Table.create! space: space1, desk_type: "hot desk", price: 34
+table = Table.create! space: space1, desk_type: "hot desk", price: 20
+table = Table.create! space: space1, desk_type: "fixed desk", price: 75
+table = Table.create! space: space1, desk_type: "fixed desk", price: 100
 
-table = Table.create! space: space2, title: "small table", desk_type: "hot desk", price: 34, description: "best table"
-table = Table.create! space: space2, title: "medium table", desk_type: "hot desk", price: 20, description: "productive table"
-table = Table.create! space: space2, title: "large table", desk_type: "fixed desk", price: 75, description: "table with a view"
-table = Table.create! space: space2, title: "extra large table", desk_type: "fixed desk", price: 100, description: "for the serious freelancer"
+table = Table.create! space: space2, desk_type: "hot desk", price: 34
+table = Table.create! space: space2, desk_type: "hot desk", price: 20
+table = Table.create! space: space2, desk_type: "fixed desk", price: 75
+table = Table.create! space: space2, desk_type: "fixed desk", price: 100
 
-table = Table.create! space: space3, title: "small table", desk_type: "hot desk", price: 34, description: "best table"
-table = Table.create! space: space3, title: "medium table", desk_type: "hot desk", price: 20, description: "productive table"
-table = Table.create! space: space3, title: "large table", desk_type: "fixed desk", price: 75, description: "table with a view"
-table = Table.create! space: space3, title: "extra large table", desk_type: "fixed desk", price: 100, description: "for the serious freelancer"
+table = Table.create! space: space3, desk_type: "hot desk", price: 34
+table = Table.create! space: space3, desk_type: "hot desk", price: 20
+table = Table.create! space: space3, desk_type: "fixed desk", price: 75
+table = Table.create! space: space3, desk_type: "fixed desk", price: 100
 
-table = Table.create! space: space4, title: "small table", desk_type: "hot desk", price: 34, description: "best table"
-table = Table.create! space: space4, title: "medium table", desk_type: "hot desk", price: 20, description: "productive table"
-table = Table.create! space: space4, title: "large table", desk_type: "fixed desk", price: 75, description: "table with a view"
-table = Table.create! space: space4, title: "extra large table", desk_type: "fixed desk", price: 100, description: "for the serious freelancer"
+table = Table.create! space: space4, desk_type: "hot desk", price: 34
+table = Table.create! space: space4, desk_type: "hot desk", price: 20
+table = Table.create! space: space4, desk_type: "fixed desk", price: 75
+table = Table.create! space: space4, desk_type: "fixed desk", price: 100
 
-table = Table.create! space: space5, title: "small table", desk_type: "hot desk", price: 34, description: "best table"
-table = Table.create! space: space5, title: "medium table", desk_type: "hot desk", price: 20, description: "productive table"
-table = Table.create! space: space5, title: "large table", desk_type: "fixed desk", price: 75, description: "table with a view"
-table = Table.create! space: space5, title: "extra large table", desk_type: "fixed desk", price: 100, description: "for the serious freelancer"
+table = Table.create! space: space5, desk_type: "hot desk", price: 34
+table = Table.create! space: space5, desk_type: "hot desk", price: 20
+table = Table.create! space: space5, desk_type: "fixed desk", price: 75
+table = Table.create! space: space5, desk_type: "fixed desk", price: 100
 
-table = Table.create! space: space6, title: "small table", desk_type: "hot desk", price: 34, description: "best table"
-table = Table.create! space: space6, title: "medium table", desk_type: "hot desk", price: 20, description: "productive table"
-table = Table.create! space: space6, title: "large table", desk_type: "fixed desk", price: 75, description: "table with a view"
-table = Table.create! space: space6, title: "extra large table", desk_type: "fixed desk", price: 100, description: "for the serious freelancer"
+table = Table.create! space: space6, desk_type: "hot desk", price: 34
+table = Table.create! space: space6, desk_type: "hot desk", price: 20
+table = Table.create! space: space6, desk_type: "fixed desk", price: 75
+table = Table.create! space: space6, desk_type: "fixed desk", price: 100

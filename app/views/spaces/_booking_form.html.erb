@@ -10,7 +10,7 @@
       <h4 class="text-center">Booking Period</h4>
       <%= simple_form_for [@space, @booking] do |f| %>
       <%= f.error_notification %>
-      <%= f.association :table, collection: @space.tables %>
+      <%= f.association :table, collection: @space.tables, label_method: lambda { |table| "Desk number: #{table.id}" } %>
       <div class="form-group">
         <span>From:</span>
         <div class='input-group date' id='bookingdate-from'>

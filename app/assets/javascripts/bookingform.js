@@ -31,5 +31,6 @@ $('#bookingdate-from').datetimepicker({
 $('#bookingdate-to').datetimepicker({
   format: "DD/MM/YYYY HH:mm",
   defaultDate: new Date(),
-  disabledDates: []
+  disabledDates: [],
+  sideBySide: true,
 });

@@ -1,8 +1,7 @@
-
 <div class="dwrapper">
   <div class="container">
     <div class="row">
-      <!-- firs paragraph -->
+      <!-- first paragraph -->
       <div class="col-xs-12 col-md-4">
        <h3> <strong style="text-transform: capitalize; "> <%= current_user.first_name %> <%= current_user.last_name %></strong></h3>
 
@@ -16,35 +15,15 @@
           <i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile
         </li> <% end %>
       </ul>
-
-
     </div>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <br>
-    <br>
-    <br>
 
-    <ul >
+    <ul>
       <li>Email: <%= current_user.email %></li>
       <li>Date Joined: <%= current_user.created_at %></li>
-
     </ul>
-
   </div>
 </div>
 </div>
-
-<br>
-
-
 
 
 <!-- storages listing-->
@@ -80,16 +59,11 @@
         <i class="fa fa-trash-o" aria-hidden="true"></i>
 
       </li>
-      <% end  %>
+      <% end %>
     </ul>
-
-
-
   </div>
-
   <% end %>
 </div>
-<!-- end of card -->
 
 </div>
 </div>
@@ -105,14 +79,14 @@
       <h4><strong>My Bookings</strong></h4>
       <% current_user.bookings.each do |book| %>
       <div class="col-xs-12 col-md-4">
-      <div class="bcard" style="background-image: url('<%= cl_image_path book.table.space.photos.first.path, height: 300, width: 400, crop: :fill %>');">
+        <div class="bcard" style="background-image: url('<%= cl_image_path book.table.space.photos.first.path, height: 300, width: 400, crop: :fill %>');">
+          <h1>hello</h1>
 
+        </div>
+      </div>
       <% end %>
 
     </div>
   </div>
-
-</div>
-</div>
 </div>
 

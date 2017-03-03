@@ -4,7 +4,4 @@ class PagesController < ApplicationController
   def home
     @spaces = Space.all.sample(6)
   end
-
-
-
 end

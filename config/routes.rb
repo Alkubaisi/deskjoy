@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"
   get "/dashboard", to: "users#dashboard"
-  get "/profiles",  to: "profiles#show"
+
+  resources :profiles, only: [:show, :edit, :update]
 
   resources :spaces do
     resources :bookings, only: [:create]
