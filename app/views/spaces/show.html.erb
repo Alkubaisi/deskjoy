@@ -64,18 +64,21 @@
                 <div class="row text-center">
                   <div class="col-xs-6">
                     <h3>Your Host</h3>
-                    <img src="https://unsplash.it/400/300" alt="user" class="avatar-bordered">
+                    <%= cl_image_tag @space.user.photo.path, class: "avatar-bordered" %>
                     <br>
-                    <%= @space.company_name %>
+                    <%= @space.user.first_name %> <%= @space.user.last_name %>
                     <br>
-                    Apple Inc
+                    <%= @space.user.email %>
                     <br>
-                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    <%= link_to @space.user.linkedin do %>
+                      <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    <% end %>
                   </div>
                   <div class="col-xs-6">
-                    <h4>About Us</h4>
+                    <h4>About me</h4>
+                    <%= @space.user.info %>
+                    <h4>About us</h4>
                     <%= @space.company_info %>
-
                   </div>
                 </div>
               </div>
@@ -125,13 +128,13 @@
               </div>
 
               <div class="tab-pane" id="3a">
-                <table class="table">
-                  <thead class="thead-inverse">
+                <table class="table text-center">
+                  <thead>
                     <tr>
-                      <th>Title</th>
-                      <th>Type</th>
-                      <th>Price</th>
-                      <th>Available</th>
+                      <th class="text-center">Title</th>
+                      <th class="text-center">Type</th>
+                      <th class="text-center">Price</th>
+                      <th class="text-center">Available</th>
                     </tr>
                   </thead>
                   <tbody>
