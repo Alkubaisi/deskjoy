@@ -12,5 +12,4 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
     resources :tables, only: [:index, :create, :edit, :update, :new]
   end
-  resources :profiles, only: [:index, :show, :edit, :update]
 end
