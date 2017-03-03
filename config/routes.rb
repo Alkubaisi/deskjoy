@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"
   get "/dashboard", to: "users#dashboard"
+  get "/profiles",  to: "profiles#show"
+
   resources :spaces do
     resources :bookings, only: [:index, :show]
     resources :tables, only: [:index]
