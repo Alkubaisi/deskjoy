@@ -1,4 +1,5 @@
 .footer-deskjoy {
+  position: relative;
   min-width: 100%;
   margin: 0;
   display: flex;
@@ -6,7 +7,7 @@
   align-items: center;
   flex-direction: row;
   background-color: $desk-gray;
-  padding: 10px 30px;
+  padding: 10px 20px;
   box-shadow: 0 0 4px $desk-darkblue;
 
   a:hover {
@@ -15,7 +16,7 @@
 }
 
 .flexbox-containter-footer {
-  width: 38%;
+  width: 40%;
   display: flex;
   justify: flex-end;
 }
@@ -28,11 +29,11 @@
 }
 
 .footer-address {
- margin-left: 70px;
+ margin-left: 50px;
 }
 
 .listul {
-  padding: 90px 0px 8px 0px;
+  padding: 70px 0px 8px 0px;
 }
 .red {
   color: $desk-red;
