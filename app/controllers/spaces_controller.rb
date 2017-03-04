@@ -1,12 +1,22 @@
 class SpacesController < ApplicationController
   before_action :set_space, only: [:show, :edit, :update]
+   before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    @spaces = Space.all
+    @spaces = Space.where.not(latitude: nil, longitude: nil)
+    @hash = Gmaps4rails.build_markers(@spaces) do |space, marker|
+      marker.lat space.latitude
+      marker.lng space.longitude
+      marker.infowindow render_to_string(partial: "/spaces/map_box", locals: { space: space })
+    end
   end
 
   def show
     @booking = Booking.new
+   @hash = Gmaps4rails.build_markers(@space) do |space, marker|
+        marker.lat space.latitude
+      marker.lng space.longitude
+    end
   end
 
   def edit
@@ -44,6 +54,6 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit(:address, :company_name, :industry, :company_info, :reciption, :security, :event_space, :bike_storage, :phone_booth, :kitchen, :lockers, :cafe_restaurant, :showers, :meeting_room, :hours, :wifi, :refreshment, photos: [])
+    params.require(:space).permit(:address, :latitude, :longitude, :company_name, :industry, :company_info, :reciption, :security, :event_space, :bike_storage, :phone_booth, :kitchen, :lockers, :cafe_restaurant, :showers, :meeting_room, :hours, :wifi, :refreshment, photos: [])
   end
 end
