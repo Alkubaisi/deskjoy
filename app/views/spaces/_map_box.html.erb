@@ -1,0 +1,9 @@
+
+
+<h5><%= space.company_name %></h5>
+<%= cl_image_tag space.photos.first.path, class: "mapboxphoto img-thumbnail" %>
+<p><%= space.company_info.split(" ")[0..15].join(" ") %>...</p>
+<%= link_to "view space", space_path(space), class: "btn btn-primary" %>
+
+
+
