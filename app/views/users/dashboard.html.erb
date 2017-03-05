@@ -7,6 +7,8 @@
 
        <% if @user.photo? %>
        <%= cl_image_tag @user.photo.path, class: 'avatar-large' %>
+       <% else %>
+       <%= image_tag ("avatar.png"), style: "height: 100px;" %>
        <% end %>
 
 

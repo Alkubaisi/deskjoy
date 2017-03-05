@@ -3,6 +3,7 @@ class Table < ApplicationRecord
   has_many :users, through: :bookings
     validates :desk_type, presence: true
   validates :price, presence: true
+  has_many :bookings, dependent: :destroy
 
 
 end
