@@ -1,19 +1,9 @@
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <% @space.photos.each do |slide| %>
-    <li data-target="#carousel-example-generic" data-slide-to=#{slide) class="#{'active' if slide == 0}"></li>
-    <% end %>
-  </ol>
-
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <% @space.photos.each_with_index do |photo, index| %>
     <div class="item <%= 'active' if index == 0 %>">
       <div class="carousel-image" style="background-image: url(<%= cl_image_path photo.path %>)"></div>
-      <div class="carousel-caption">
-        Hello
-      </div>
     </div>
     <% end %>
   </div>
@@ -30,106 +20,51 @@
 </div>
 
 
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: -75px;">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-1">
-      <div class="row">
-        <div class="col-xs-12">
-          <h1><%= @space.company_name %></h1>
-          <h4><%= @space.address %></h4>
+    <div class="col-xs-12 col-sm-7 col-sm-offset-1">
 
+      <div class="row">
+        <div class="show-flexbox">
+          <div>
+            <h1><%= @space.company_name %></h1>
+            <h4><%= @space.address %></h4>
+          </div>
+          <div>
+            <%= link_to profile_path(@space.user) do %>
+            <div class="owner-div">
+              <%= avatar_for_user_show(@space.user) %>
+              <%= @space.user.first_name %> <%= @space.user.last_name %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="show-card">
           <h3> A Bit About This Space... </h3>
           <p><%= @space.company_info %></p>
         </div>
       </div>
 
-      <div class="tabwrraper">
-
-        <div class="w3-container">
-          <div class="w3-row">
-            <a href="javascript:void(0)" onclick="openCity(event, 'Host');">
-              <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">About the Host</div>
-            </a>
-            <a href="javascript:void(0)" onclick="openCity(event, 'Amenities');">
-              <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Amenities</div>
-            </a>
-            <a href="javascript:void(0)" onclick="openCity(event, 'Tables');">
-              <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Available desks</div>
-            </a>
-          </div>
-
-          <div id="Host" class="w3-container city" style="display:none">
-
-
-
-            <h3>Your Host</h3>
-            <%= avatar_for_user_show(@space.user) %>
-            <br>
-            <%= @space.user.first_name %> <%= @space.user.last_name %>
-            <br>
-            <%= @space.user.email %>
-            <br>
-            <%= link_to @space.user.linkedin do %>
-            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-            <% end %>
-
-
-          </div>
-
-          <div id="Amenities" class="w3-container city" style="display:none">
-           <div class="row">
-            <% if @space.reception %>
-            <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.wifi %>
-            <div class="col-xs-4"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.event_space %>
-            <div class="col-xs-4"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.security %>
-            <div class="col-xs-4"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.bike_storage %>
-            <div class="col-xs-4"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.phone_booth %>
-            <div class="col-xs-4"><i class="fa fa-quora fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.kitchen %>
-            <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.lockers %>
-            <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.cafe_restaurant %>
-            <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.showers %>
-            <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.meeting_room %>
-            <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.always_open %>
-            <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-            <% if @space.refreshment %>
-            <div class="col-xs-4"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></div>
-            <% end %>
-          </div>
+      <div class="row">
+        <div class="show-card">
+          <h3>Location</h3>
+          <div id="map" style="width: 100%; height: 300px;"></div>
         </div>
+      </div>
 
-        <div id="Tables" class="w3-container city" style="display:none">
+      <div class="row">
+        <div class="show-card">
+          <h3>Amenities</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="show-card">
+          <h3>Available Desks</h3>
           <table class="table">
-            <thead>
-              <tr>
-                <th class="text-center">Number</th>
-                <th class="text-center">Type</th>
-                <th class="text-center">Price</th>
-                <th class="text-center">Available</th>
-              </tr>
-            </thead>
             <tbody  class="text-center">
               <% @space.tables.each do |table| %>
               <tr>
@@ -143,33 +78,29 @@
           </table>
         </div>
       </div>
+    </div>
 
-      <script>
-        function openCity(evt, cityName) {
-          var i, x, tablinks;
-          x = document.getElementsByClassName("city");
-          for (i = 0; i < x.length; i++) {
-           x[i].style.display = "none";
-         }
-         tablinks = document.getElementsByClassName("tablink");
-         for (i = 0; i < x.length; i++) {
-           tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
-         }
-         document.getElementById(cityName).style.display = "block";
-         evt.currentTarget.firstElementChild.className += " w3-border-red";
-       }
-     </script>
 
-     <!-- end -->
-<br>
 
-<div id="map" style="width: 100%; height: 300px;"></div>
+    <div class="col-xs-12 col-sm-3">
+      <div class="content"></div>
+      <%= render "booking_form" %>
+    </div>
+  </div>
+</div>
+
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
+      handler.buildMap({
+        internal: { id: 'map' },
+        provider: {
+          scrollwheel: false,
+          styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
+        }
+      }, function() {
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
@@ -183,14 +114,3 @@
   <% end %>
 <% end %>
 
-
-
-
-   </div>
- </div>
- <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-  <div class="content"></div>
-  <%= render "booking_form" %>
-</div>
-</div>
-</div>
