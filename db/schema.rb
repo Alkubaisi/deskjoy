@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304161918) do
+ActiveRecord::Schema.define(version: 20170305145643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170304161918) do
     t.boolean  "status",     default: false
     t.index ["table_id"], name: "index_bookings_on_table_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
-  end
+  endmap(&:id)
 
   create_table "spaces", force: :cascade do |t|
     t.integer  "user_id"
@@ -71,11 +71,11 @@ ActiveRecord::Schema.define(version: 20170304161918) do
   create_table "tables", force: :cascade do |t|
     t.integer  "space_id"
     t.integer  "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "desk_type"
-    t.string   "start_date"
-    t.string   "end_date"
+    t.string   "available"
+    t.string   "not_available"
     t.index ["space_id"], name: "index_tables_on_space_id", using: :btree
   end
 

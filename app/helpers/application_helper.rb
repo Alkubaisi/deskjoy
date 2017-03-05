@@ -9,9 +9,9 @@ module ApplicationHelper
 
 def avatar_for_user_show(user)
     if user.photo?
-      cl_image_tag(user.photo.path, class: "avatar-bordered")
+      cl_image_tag(user.photo.path, class: "space-owner")
     else
-      image_tag("avatar.png", class: "avatar-bordered")
+      image_tag("avatar.png", class: "space-owner")
     end
   end
 

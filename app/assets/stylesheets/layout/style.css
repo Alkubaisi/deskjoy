@@ -490,18 +490,18 @@ h5 {
 	padding-right: 8px;
 	letter-spacing: .7px;
 }*/
-.form-group {
+/*.form-group {
 	margin-bottom: 40px;
 	position: relative;
-}
-.form-group i {
+}*/
+/*.form-group i {
 	position: absolute;
 	top: 0;
 	right: 20px;
 	color: #00b0ff;
 	font-size: 24px;
 	line-height: 48px;
-}
+}*/
 .help-block {
 	color: #646e7b;
 	text-align: center;
@@ -510,9 +510,9 @@ h5 {
 	margin-top: 12px;
 	margin-bottom: 0;
 }
-.checkbox {
+/*.checkbox {
 	margin: 40px 0;
-}
+}*/
 .checkbox label, .radio label {
 	color: #282828;
 	line-height: 28px;

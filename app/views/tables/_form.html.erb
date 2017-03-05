@@ -3,11 +3,8 @@
 <div class="newtable">
 <div class="toppic">
   <h1>Add Table </h1>
-  <p>
-
-
-please enter your details below, if you have questions you can reach us using the link provided.</p>
-<hr>
+  <p>Please enter your details below, if you have questions you can reach us using the link provided.</p>
+  <hr>
 </div>
 
 <div class="add-form">
@@ -15,12 +12,11 @@ please enter your details below, if you have questions you can reach us using th
   <%= f.error_notification %>
 
   <div class="form-inputs">
-
-     <%= f.input :price, input_html: { placeholder: "Price", class: 'form-control input-lg' } %>
+    <%= f.input :price, input_html: { placeholder: "Price", class: 'form-control input-lg' } %>
     <%= f.input :desk_type, :input_html => { placeholder: "Desk type", class: 'input-lg' } %>
-
-
-    </div>
+    <%= f.input :available, label: 'Available from', :input_html => {class: 'input-lg' } %>
+    <%= f.input :not_available, label: 'Available to', :input_html => { class: 'input-lg' } %>
+  </div>
 
 
   </div>
