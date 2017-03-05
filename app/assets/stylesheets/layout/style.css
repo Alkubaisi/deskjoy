@@ -42,8 +42,8 @@
    ========================================================================== */
 
 /* Typography
-   ========================================================================== */
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700|Quicksand:300,400,700|Poiret+One');
+/*========================================================================== */
+/*@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700|Quicksand:300,400,700|Poiret+One');
 body {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
@@ -149,7 +149,7 @@ h5 {
 	margin: 0;
 	margin-bottom: 20px;
 	letter-spacing: .8px;
-}
+}*/
 .section.dark h2 {
 	color: #fff;
 }
@@ -405,7 +405,7 @@ h5 {
 /* ==========================================================================
    03. Forms
    ========================================================================== */
-input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]), select, textarea {
+/*input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]), select, textarea {
 	display: block;
 	border: none;
 	background: #fff;
@@ -419,7 +419,7 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio])
 	font-weight: 400;
 	letter-spacing: .7px;
 	border-radius: 48px;
-}
+}*/
 .light-inputs input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]), .light-inputs select, .light-inputs textarea {
 	background: #f1f2f6;
 }
@@ -449,11 +449,11 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio])
 	border-radius: 48px;
 	padding: 0 20px;
 }
-textarea {
+/*textarea {
 	height: auto;
 	border-radius: 0;
-}
-select, .light-inputs select {
+}*/
+/*select, .light-inputs select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	-ms-appearance: none;
@@ -461,8 +461,8 @@ select, .light-inputs select {
 	background-image: url(../images/dropdown.png);
 	background-repeat: no-repeat;
 	background-position: right 18px center;
-}
-::-webkit-input-placeholder {
+}*/
+/*::-webkit-input-placeholder {
 	color: #646e7b;
 }
 :-moz-placeholder {
@@ -475,8 +475,8 @@ select, .light-inputs select {
 }
 :-ms-input-placeholder {
 	color: #646e7b;
-}
-.input-group-addon {
+}*/
+/*.input-group-addon {
 	color: #172434;
 	text-align: center;
 	background-color: #f1f2f6;
@@ -489,7 +489,7 @@ select, .light-inputs select {
 	padding-left: 30px;
 	padding-right: 8px;
 	letter-spacing: .7px;
-}
+}*/
 .form-group {
 	margin-bottom: 40px;
 	position: relative;
@@ -610,7 +610,7 @@ select, .light-inputs select {
 		letter-spacing: 0;
 		font-size: 12px;
 	}
-	.input-group input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]), .input-group select {
+/*	.input-group input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]), .input-group select {
 		border-radius: 48px;
 		padding: 0 20px;
 		width: 100%;
@@ -618,7 +618,7 @@ select, .light-inputs select {
 	}
 	.input-group {
 		display: block;
-	}
+	}*/
 }
 
 /* ==========================================================================
@@ -667,7 +667,8 @@ select, .light-inputs select {
 	margin-left: 40px;
 }
 .header-search input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]) {
-	line-height: 120px;
+	border: none;
+  line-height: 120px;
 	height: 120px;
 	display: inline-block;
 	width: auto;
@@ -679,6 +680,11 @@ select, .light-inputs select {
 	letter-spacing: 1.6px;
 	color: #fff;
 }
+
+.header-search input:focus{
+  outline: none;
+}
+
 .header-search ::-webkit-input-placeholder {
 	color: #fff;
 }
@@ -2796,10 +2802,10 @@ h4 small {
 	color: #646e7b;
 	margin-top: 16px;
 }
-hr {
+/*hr {
 	margin: 80px -30px;
 	border-top: 1px solid #f1f2f6;
-}
+}*/
 
 /* ==========================================================================
    20. My listings
