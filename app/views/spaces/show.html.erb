@@ -63,7 +63,7 @@
 
 
             <h3>Your Host</h3>
-            <%= cl_image_tag @space.user.photo.path, class: "avatar-bordered" %>
+            <%= avatar_for_user_show(@space.user) %>
             <br>
             <%= @space.user.first_name %> <%= @space.user.last_name %>
             <br>

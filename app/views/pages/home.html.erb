@@ -12,7 +12,7 @@
     <div class="col-xs-12 col-sm-4">
       <%= link_to space_path(space) do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path space.photos.first.path %>');">
-        <%= cl_image_tag space.user.photo.path, class: "card-avatar" %>
+        <%= avatar_for_user(space.user) %>
         <div class="card-description">
           <h2><%= space.company_name %></h2>
           <p><%= space.address %></p>
