@@ -1,52 +1,93 @@
 
 <div class="container-fluid not-padded">
 
-    <!-- first paragraph -->
-    <div class="col-xs-12 col-md-12 -fluid not-padded" >
-      <div class="wrapperdashtop" style="background-image: linear-gradient(rgba(39,40,34,0),rgba(39,40,34,1)), url(<%= image_path 'wimbledon2.jpg' %>);">
+  <!-- first paragraph -->
+  <div class="col-xs-12 col-md-12 -fluid not-padded" >
+    <div class="wrapperdashtop" style="background-image: linear-gradient(rgba(39,40,34,0),rgba(39,40,34,1)), url(<%= image_path 'wimbledon2.jpg' %>);">
+    </div>
+  </div>
+
+
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div class="storagedash show-flexbox">
+     <div class="owner-div">
+      <%= avatar_for_user_dashboard(@user) %>
+      <h3 class="dashh"><%= current_user.first_name %> <%= current_user.last_name %></h3>
+      <h5 class="dashh"><%= link_to "Edit profile", edit_profile_path(current_user) %></h5>
+    </div>
+    <%= link_to "Become Host", "#", class: "button" %>
+  </div>
+
+
+  <div class="dash-card">
+    <h1>Booking History</h1><hr>
+    <div class="row">
+      <% current_user.bookings.each do |book| %>
+      <div class="col-xs-12 col-md-6">
+        <div class="card-dash-history">
+         <%= cl_image_tag book.table.space.photos.first.path %>
+         <div class="container-dash">
+          <h4><b><%= book.table.space.company_name %></b></h4>
+          <p><%= book.table.space.industry %></p>
+          <div class="cardbtn"> <%= link_to "Write Review", "#", class: "btn btn-primary" %>  <%= link_to "View Invoice", "#", class: "btn btn-primary" %></div>
+        </div>
       </div>
     </div>
+    <% end %>
+  </div>
+</div>
 
+<div class="dash-card">
+  <div class="row">
 
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
-        <div class="storagedash show-flexbox">
-         <div class="owner-div">
-          <%= avatar_for_user_dashboard(@user) %>
-          <h3 class="dashh"><%= current_user.first_name %> <%= current_user.last_name %></h3>
-          <h5 class="dashh"><%= link_to "Edit profile", edit_profile_path(current_user) %></h5>
-          </div>
-          <%= link_to "Become Host", "#", class: "button" %>
-        </div>
-
-
-        <div class="dash-card">
-          <h1>Booking History</h1><hr>
-          <div class="row">
-          <% current_user.bookings.each do |book| %>
-          <div class="col-xs-12 col-md-6">
-            <div class="card-dash-history">
-             <%= cl_image_tag book.table.space.photos.first.path %>
-             <div class="container-dash">
-              <h4><b><%= book.table.space.company_name %></b></h4>
-              <p><%= book.table.space.industry %></p>
-             <div class="cardbtn"> <%= link_to "Write Review", "#", class: "btn btn-primary" %>  <%= link_to "View Invoice", "#", class: "btn btn-primary" %></div>
-            </div>
-          </div>
-        </div>
-        <% end %>
-        </div>
-      </div>
-
-      <div class="dash-card">
-        <div class="row">
+    <div class="col-xs-12 col-md-12">
         <h1>My space:</h1><hr>
-         <div class="col-xs-12 col-md-12">
+
+      <table class="layout display responsive-table">
+        <!-- start box -->
+        <% current_user.spaces.each do |space| %>
+        <h3><%= space.company_name %></h3>
 
 
 
-          </div>
-        </div>
-      </div>
+
+
+        <table class="layout display responsive-table table-hover">
+          <thead>
+            <tr>
+              <th>Table Price</th>
+              <th >Type</th>
+               <th >Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+           <% space.tables.each do |table|  %>
+           <tr>
+
+            <td class="organisationnumber">£<%= table.price %></td>
+            <td class="organisationname"><%= table.desk_type %></td>
+            <td class="actions" style="text-align: center;">
+              <%= link_to edit_space_table_path(space, table) do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>
+              <%= link_to space_table_path(space, table), method: :delete, data: { confirm: 'Are you sure?' } do  %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <% end %>
+
+            </td>
+
+          </tr>
+          <% end %>
+
+        </tbody>
+
+      </table>
+     <%= link_to "Add table", new_space_table_path(space), class: "btn btn-primary" %>
+      <% end %>
+      <!-- end box -->
+
+    </div>
+  </div>
+</div>
 
 
 

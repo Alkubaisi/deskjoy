@@ -1,35 +1,19 @@
 class TablesController < ApplicationController
 
- def edit
+  def edit
+        @space = Space.find(params[:space_id])
+        @table = Table.find(params[:id])
   end
 
   def update
-    respond_to do |format|
+
+@table = Table.find(params[:id])
       if @table.update(table_params)
-        format.html { redirect_to @space, notice: 'space was successfully updated.' }
+        redirect_to @space, notice: 'space was successfully updated.'
       else
         format.html { render :edit }
 
-      end
-    end
-  end
 
-
-
-  def create
-      @space = Space.find(params[:space_id])
-    @table = Table.new(table_params)
-    @table.space = @space
-   if @table.save
-      respond_to do |format|
-        format.html {redirect_to space_path(@space)}
-       format.js
-      end
-    else
-      respond_to do |format|
-        format.html {render 'space/show'}
-        format.js #create.js.erb
-      end
     end
   end
 
@@ -38,6 +22,24 @@ class TablesController < ApplicationController
     @table = Table.new
   end
 
+  def create
+    @space = Space.find(params[:space_id])
+    @table = Table.new(table_params)
+    @table.space = @space
+    if @table.save
+      redirect_to space_path(@space)
+    else
+      render 'new'
+    end
+  end
+
+  def destroy
+    @table = Table.find(params[:id])
+
+    if @table.destroy
+      redirect_to dashboard_path, notice: 'Table was successfully destroyed.'
+    end
+  end
 
   private
 
