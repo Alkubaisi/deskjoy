@@ -15,6 +15,7 @@
           <h3 class="dashh"><%= current_user.first_name %> <%= current_user.last_name %></h3>
           <h5 class="dashh"><%= link_to "Edit profile", edit_profile_path(current_user) %></h5>
           </div>
+          <%= link_to "Become Host", "#", class: "button" %>
         </div>
 
 
@@ -28,7 +29,7 @@
              <div class="container-dash">
               <h4><b><%= book.table.space.company_name %></b></h4>
               <p><%= book.table.space.industry %></p>
-             <div class="cardbtn"> <%= link_to "Write Review", "#", class: "btn btn-primary" %>  <%= link_to "View Invice", "#", class: "btn btn-primary" %></div>
+             <div class="cardbtn"> <%= link_to "Write Review", "#", class: "btn btn-primary" %>  <%= link_to "View Invoice", "#", class: "btn btn-primary" %></div>
             </div>
           </div>
         </div>
@@ -36,9 +37,24 @@
         </div>
       </div>
 
+      <div class="dash-card">
+        <div class="row">
+        <h1>My space:</h1><hr>
+         <div class="col-xs-12 col-md-12">
 
 
 
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+</div>
 
 
 </div>
