@@ -1,0 +1,32 @@
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="email-wrapper">
+          <header id="header" class="info">
+            <h2>Enquiries</h2>
+            <div><h4>Questions? Feel free to contact us.</h4></div>
+          </header>
+
+          <div class="add-form">
+            <%= simple_form_for(@contact, url: contact_path) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.input :email, input_html: { placeholder: "email" } %>
+              <%= f.input :first_name, input_html: { placeholder: "first name" } %>
+              <%= f.input :last_name, input_html: { placeholder: "last name" } %>
+              <%= f.input :enquiry, input_html:  { placeholder: "" } %>
+            </div>
+
+            <div class="form-actions">
+            <%= f.button :submit, "Send Enquiry", {class: "btn btn-primary" } %>
+            <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>

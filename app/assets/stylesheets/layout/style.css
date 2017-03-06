@@ -1229,7 +1229,7 @@ h5 {
 .footer .top {
 	background: rgba(23,36,52,.9);
 	position: relative;
-	height: 160px;
+	height: 120px;
 }
 .footer .top .left {
 	position: absolute;
@@ -1237,7 +1237,7 @@ h5 {
 	left: 50px;
 }
 .footer .top .logo {
-	height: 160px;
+	height: 120px;
 	font-size: 0;
 	text-align: center;
 	display: inline-block;
@@ -1252,14 +1252,14 @@ h5 {
 .footer .top .logo a {
 	display: inline-block;
 	vertical-align: middle;
-	max-height: 160px;
+	max-height: 120px;
 }
 .footer .top .social-icons {
 	text-align: center;
 }
 .footer .top .social-icons a {
 	font-size: 18px;
-	line-height: 160px;
+	line-height: 120px;
 	color: #646e7b;
 	margin: 0 7px;
 }
@@ -1270,14 +1270,14 @@ h5 {
 	position: absolute;
 	top: 0;
 	right: 50px;
-	line-height: 160px;
+	line-height: 120px;
 }
 .footer .top .right a {
 	margin-left: 20px;
 }
 .footer .bottom {
 	font-size: 12px;
-	line-height: 50px;
+	line-height: 25px;
 	color: #646e7b;
 	text-align: center;
 	letter-spacing: .6px;
@@ -1294,11 +1294,11 @@ h5 {
 		text-align: center;
 	}
 	.footer .top .logo {
-		height: 120px;
+		height: 100px;
 	}
 
   .footer .top .logo a {
-		max-height: 120px;
+		max-height: 100px;
 	}
 	.footer .top .right {
 		position: relative;
