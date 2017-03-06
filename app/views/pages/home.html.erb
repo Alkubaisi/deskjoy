@@ -34,19 +34,19 @@
       </form>
       <div class="highlight-slider-wrapper">
         <div class="row">
-</div> <!-- end .inner -->
-
-</a> <!-- end .category-box -->
-</div> <!-- end .col-md-3 -->
-</div> <!-- end .row -->
-
-</div> <!-- end .text-center -->
+        </div> <!-- end .inner -->
+      </div> <!-- end .col-md-3 -->
+    </div> <!-- end .row -->
+  </div> <!-- end .text-center -->
 </div> <!-- end .container -->
-</div> <!-- end .inner -->
-</div> <!-- end .section -->
 
 
-<div class="container">
+<div class="section-padded container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h3>Our favourite spaces</h3>
+    </div>
+  </div>
   <div class="row">
     <% @spaces.each do |space| %>
     <div class="col-xs-12 col-sm-4">
@@ -65,112 +65,53 @@
 </div>
 
 
-<div class="section light transparent" style="background-image: url('images/background02.jpg');">
-  <div class="inner">
-    <div class="container">
-      <h3 class="text-center">What is DeskJoy?</h3> <p align="center">Discover how Deskjoy can you help you find workspace.</p>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="services">
-            <%= image_tag "search.png" %>
-            <h3>Find<br>A Workspace</h3>
-            <p>Looking for a creative workspace? We have you covered! Book a desk within your industry with DeskJoy.</p>
-            <div class="process"><i class="pe-7s-angle-right-circle"></i></div>
-          </div> <!-- end .services -->
-        </div> <!-- end .col-sm-4 -->
-        <div class="col-sm-4">
-          <div class="services">
-            <%= image_tag "table.png" %>
-            <h3>Work<br>with companies within your industry</h3>
-            <p>Search and filter hundreds of listings, read reviews, explore photos and find the perfect desk.</p>
-            <div class="process"><i class="pe-7s-angle-right-circle"></i></div>
-          </div> <!-- end .services -->
-        </div> <!-- end .col-sm-4 -->
-        <div class="col-sm-4">
-          <div class="services">
-            <%= image_tag "users.png" %>
-            <h3>Network<br> with amazing people</h3>
-            <p>Go, work hard and have a good time and expand your professional network, thanks to DeskJoy!</p>
-          </div> <!-- end .services -->
-        </div> <!-- end .col-sm-4 -->
-      </div> <!-- end .row -->
-    </div> <!-- end .container -->
-  </div> <!-- end .inner -->
+<div class="section-padded" style="background-color: #DEDEDE;">
+  <div class="container text-center">
+    <h3>What is DeskJoy?</h3>
+    <p>Discover how Deskjoy can you help you find workspace.</p>
+    <div class="row features-deskjoy">
+      <div class="col-sm-4">
+        <div class="services">
+          <%= image_tag "search.png" %>
+          <h3>Find A Workspace</h3>
+          <p>Looking for a creative workspace? We have you covered! Book a desk within your industry with DeskJoy.</p>
+        </div> <!-- end .services -->
+      </div> <!-- end .col-sm-4 -->
+      <div class="col-sm-4">
+        <div class="services">
+          <%= image_tag "table.png" %>
+          <h3>Work with companies within your industry</h3>
+          <p>Search and filter hundreds of listings, read reviews, explore photos and find the perfect desk.</p>
+        </div> <!-- end .services -->
+      </div> <!-- end .col-sm-4 -->
+      <div class="col-sm-4">
+        <div class="services">
+          <%= image_tag "users.png" %>
+          <h3>Network with amazing people</h3>
+          <p>Go, work hard and have a good time and expand your professional network, thanks to DeskJoy!</p>
+        </div> <!-- end .services -->
+      </div> <!-- end .col-sm-4 -->
+    </div> <!-- end .row -->
+  </div> <!-- end .container -->
 </div> <!-- end .section -->
 
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-5 col-md-offset-1 section-padded">
+      <h3> Why DeskJoy?</h3>
+      <p>
+        Share space with those in your industry. Founded in 2017 Deskjoy offers affordable deskspace within London. Network and grow your network with DeskJoy!
+      </p>
+      <br>
 
-<div class="row">
-  <div class="col-xs-12 col-md-5 col-md-offset-1">
-    <h3> Why DeskJoy?</h3>
-    <p>
-      Share space with those in your industry. Founded in 2017 Deskjoy offers affordable deskspace within London. Network and grow your network with DeskJoy!
-    </p>
-    <br>
+      <h4>"Deskjoy is awesome!"</h4>
+      <h5>-John Doe-</h5>
+      <h5>J Doe & Co</h5>
 
-    <h4>"Deskjoy is awesome!"</h4>
-    <h5>-John Doe-</h5>
-    <h5>J Doe & Co</h5>
-
+    </div>
+    <div class="col-xs-12 col-md-5 text-center">
+      <%= image_tag "man2.png", height: 395 %>
+    </div>
   </div>
-  <div class="col-xs-12 col-md-6 text-center">
-    <%= image_tag "man2.png", height: 395 %>
-  </div>
 </div>
-</div>
-</div>
-
-
-<div class="signup-wrapper">
-  <div class="signup">
-    <form>
-      <div class="form-group">
-        <input type="text" placeholder="Username">
-      </div> <!-- end .form-group -->
-      <div class="form-group">
-        <input type="email" placeholder="Email Address">
-      </div> <!-- end .form-group -->
-      <div class="text-center">
-        <p>A password will be e-mailed to you.</p>
-      </div> <!-- end .text-center -->
-      <div class="button-wrapper"><button type="submit" class="button">Register</button></div>
-      <div class="text-center">
-        <p>Already have an account? <a href="" class="login-open">Log in</a></p>
-        <div class="social">
-          <p>Connect with Social Networks</p>
-          <a href=""><img src="images/facebook.png" alt="facebook"></a>
-          <a href=""><img src="images/twitter.png" alt="twitter"></a>
-          <a href=""><img src="images/google-plus.png" alt="google plus"></a>
-        </div> <!-- end .social -->
-      </div>
-    </form>
-  </div> <!-- end .signup -->
-</div> <!-- end .signup-wrapper -->
-
-<!-- jQuery -->
-<script src="js/jquery-3.1.0.min.js"></script>
-<!-- Bootstrap -->
-<script src="js/bootstrap.min.js"></script>
-<!-- google maps -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy-PboZ3O_A25CcJ9eoiSrKokTnWyAmt8"></script>
-<!-- rich marker -->
-<script src="js/richmarker.js"></script>
-<!-- Owl Carousel -->
-<script src="js/owl.carousel.min.js"></script>
-<!-- Countdown -->
-<script src="js/countdown.js"></script>
-<!-- Sweet Alert -->
-<script src="js/sweetalert.min.js"></script>
-<!-- Nivo Lightbox -->
-<script src="scripts/Nivo-Lightbox/nivo-lightbox.min.js"></script>
-<!-- NoUISlider -->
-<script src="js/jquery.nouislider.all.min.js"></script>
-<!-- Bootstrap Select -->
-<script src="js/bootstrap-select.min.js"></script>
-<!-- Nice Scroll -->
-<script src="js/jquery.nicescroll.min.js"></script>
-<!-- Scripts.js -->
-<script src="js/scripts.js"></script>
-
-</body>
-</html>

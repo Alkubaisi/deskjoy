@@ -1309,6 +1309,9 @@ h5 {
 		margin-top: 24px;
 		margin-bottom: 36px;
 	}
+  .footer .top .social-icons {
+    padding: 20px;
+  }
 	.footer .top .social-icons a {
 		line-height: 24px;
 	}
@@ -1597,14 +1600,20 @@ h5 {
 /* ==========================================================================
    09. Services
    ========================================================================== */
+.section-padded {
+  padding: 40px 0;
+}
+
 .services {
 	text-align: center;
 	padding: 0 20px;
 	position: relative;
 }
-.services img {
-	margin-bottom: 24px;
+
+.features-deskjoy {
+  margin-top: 45px;
 }
+
 .services p {
 	margin-bottom: 0;
 }
