@@ -1,105 +1,73 @@
-<div class="dwrapper">
-  <div class="container">
-    <div class="row">
-      <!-- first paragraph -->
-      <div class="col-xs-12 col-md-4">
-       <h3> <strong style="text-transform: capitalize; "> <%= current_user.first_name %> <%= current_user.last_name %></strong></h3>
 
-       <% if @user.photo? %>
-       <%= cl_image_tag @user.photo.path, class: 'avatar-large' %>
-       <% else %>
-       <%= image_tag ("avatar.png"), style: "height: 100px;" %>
-       <% end %>
+<div class="container-fluid not-padded">
 
-
-       <ul class="list-inline">
-        <li> <%= link_to edit_profile_path(current_user) do %>
-          <i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile
-        </li> <% end %>
-      </ul>
+    <!-- first paragraph -->
+    <div class="col-xs-12 col-md-12 -fluid not-padded" >
+      <div class="wrapperdashtop" style="background-image: linear-gradient(rgba(39,40,34,0),rgba(39,40,34,1)), url(<%= image_path 'wimbledon2.jpg' %>);">
+      </div>
     </div>
 
-    <ul>
-      <li>Email: <%= current_user.email %></li>
-      <li>Date Joined: <%= current_user.created_at %></li>
-    </ul>
-  </div>
-</div>
-</div>
+
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <div class="storagedash show-flexbox">
+         <div class="owner-div">
+          <%= avatar_for_user_dashboard(@user) %>
+          <h3 class="dashh"><%= current_user.first_name %> <%= current_user.last_name %></h3>
+          <h5 class="dashh"><%= link_to "Edit profile", edit_profile_path(current_user) %></h5>
+          </div>
+          <%= link_to "Become Host", "#", class: "button" %>
+        </div>
 
 
-<!-- storages listing-->
-<div class="container">
-  <div class="row">
-
-    <h4><strong>My Listings</strong></h4>
-
-    <% current_user.spaces.each do |space| %>
-    <div class="col-xs-12 col-md-4">
-      <div class="card" style="background-image: url('<%= cl_image_path space.photos.first.path, height: 300, width: 400, crop: :fill %>');">
-        <h3><strong><%= space.company_name %></strong></h3>
-
-        <br>
-        <br>
-        <br>
-        <div class="card-description">
-         <p><%= space.industry %></p>
-         <p><%= space.company_info.split(" ")[0..15].join(" ") %></p>
-       </div>
-       <%= link_to "#", space, class: "card-link" %>
-     </div>
-     <ul class="list-inline">
-
-       <li>
-        <%= link_to edit_space_path(space) do %>
-        <i class="fa fa-pencil" aria-hidden="true"></i>
+        <div class="dash-card">
+          <h1>Booking History</h1><hr>
+          <div class="row">
+          <% current_user.bookings.each do |book| %>
+          <div class="col-xs-12 col-md-6">
+            <div class="card-dash-history">
+             <%= cl_image_tag book.table.space.photos.first.path %>
+             <div class="container-dash">
+              <h4><b><%= book.table.space.company_name %></b></h4>
+              <p><%= book.table.space.industry %></p>
+             <div class="cardbtn"> <%= link_to "Write Review", "#", class: "btn btn-primary" %>  <%= link_to "View Invoice", "#", class: "btn btn-primary" %></div>
+            </div>
+          </div>
+        </div>
         <% end %>
-      </li>
-      <li>
-
-        <%= link_to space, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <i class="fa fa-trash-o" aria-hidden="true"></i>
-
-      </li>
-      <% end %>
-
-        <li>
-
-        <%= link_to new_space_table_path(space) do %>
-        <i class="fa fa-plus" aria-hidden="true"></i>
-
-      </li>
-      <% end %>
-
-    </ul>
-  </div>
-
-
-  <% end %>
-</div>
-
-</div>
-</div>
-
-<br>
-<br>
-
-
-<!-- bookings listing-->
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-4">
-      <h4><strong>My Bookings</strong></h4>
-      <% current_user.bookings.each do |book| %>
-      <div class="col-xs-12 col-md-4">
-        <div class="bcard" style="background-image: url('<%= cl_image_path book.table.space.photos.first.path, height: 300, width: 400, crop: :fill %>');">
-          <h1>hello</h1>
-
         </div>
       </div>
-      <% end %>
 
-    </div>
-  </div>
+      <div class="dash-card">
+        <div class="row">
+        <h1>My space:</h1><hr>
+         <div class="col-xs-12 col-md-12">
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
 </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
