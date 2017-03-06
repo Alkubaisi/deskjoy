@@ -1,8 +1,51 @@
-.dwrapper {
+.wrapperdashtop {
   margin-top: 0px;
-
+  height: 300px;
   background-color:  #efeff5;
   padding: 10px;
+  background-size: cover;
+  background-position: center;
 
+}
+.storagedash {
+  background-color: white;
+  margin-top: -75px;
+}
 
+.dash-ownerpic {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+.dashh {
+  margin-top: 0px;
+}
+.dash-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+.card-dash-history {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    img {
+      width: 100%;
+      height:200px;
+    }
+}
+
+/* On mouse-over, add a deeper shadow */
+.card-dash-history:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container-dash {
+    padding: 2px 16px;
+}
+.cardbtn {
+  margin-bottom: 8px;
 }

@@ -14,7 +14,13 @@ def avatar_for_user_show(user)
       image_tag("avatar.png", class: "space-owner")
     end
   end
-
+def avatar_for_user_dashboard(user)
+    if user.photo?
+      cl_image_tag(user.photo.path, class: "dash-ownerpic")
+    else
+      image_tag("avatar.png", class: "dash-ownerpic")
+    end
+  end
 
 end
 
