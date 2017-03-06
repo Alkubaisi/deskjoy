@@ -1,0 +1,103 @@
+<div class="row">
+  <div class="col-xs-4">
+
+    <div class="form-group boolean optional space_reception">
+      <div class="checkbox">
+        <input value="0" type="hidden" name="space[reception]">
+        <label class="boolean optional" for="space_reception">
+
+          space[reception]" id="space_reception">Reception</label>
+        </div>
+      </div>
+
+      <div class="form-group boolean optional space_kitchen">
+        <div class="checkbox"><input value="0" type="hidden" name="space[kitchen]">
+          <label class="boolean optional" for="space_kitchen">
+            <input class="boolean optional" type="checkbox" value="1" name="space[kitchen]" id="space_kitchen">Kitchen
+          </label>
+        </div>
+      </div>
+      <div class="form-group boolean optional space_showers">
+        <div class="checkbox"><input value="0" type="hidden" name="space[showers]">
+          <label class="boolean optional" for="space_showers">
+            <input class="boolean optional" type="checkbox" value="1" name="space[showers]" id="space_showers">Showers
+          </label>
+        </div>
+      </div>
+      <div class="form-group boolean optional space_wifi"><div class="checkbox"><input value="0" type="hidden" name="space[wifi]"><label class="boolean optional" for="space_wifi"><input class="boolean optional" type="checkbox" value="1" name="space[wifi]" id="space_wifi">Wifi
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-4">    <div class="form-group boolean optional space_security">
+  <div class="checkbox"><input value="0" type="hidden" name="space[security]">
+    <label class="boolean optional" for="space_security">
+      <input class="boolean optional" type="checkbox" value="1" name="space[security]" id="space_security">Security</label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional space_lockers">
+    <div class="checkbox"><input value="0" type="hidden" name="space[lockers]">
+      <label class="boolean optional" for="space_lockers"><input class="boolean optional" type="checkbox" value="1" name="space[lockers]" id="space_lockers">Lockers</label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional space_meeting_room">
+    <div class="checkbox"><input value="0" type="hidden" name="space[meeting_room]">
+      <label class="boolean optional" for="space_meeting_room">
+        <input class="boolean optional" type="checkbox" value="1" name="space[meeting_room]" id="space_meeting_room">Meeting room
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional space_refreshment"><div class="checkbox">
+    <input value="0" type="hidden" name="space[refreshment]">
+    <label class="boolean optional" for="space_refreshment">
+      <input class="boolean optional" type="checkbox" value="1" name="space[refreshment]" id="space_refreshment">Refreshment
+    </label>
+  </div>
+</div>
+</div>
+
+<div class="col-xs-4">
+ <div class="form-group boolean optional space_event_space"><div class="checkbox">
+   <input value="0" type="hidden" name="space[event_space]">
+   <label class="boolean optional" for="space_event_space">
+     <input class="boolean optional" type="checkbox" value="1" name="space[event_space]" id="space_event_space">Event space
+   </label>
+ </div>
+</div>
+
+<div class="form-group boolean optional space_phone_booth">
+  <div class="checkbox ">
+    <input value="0" type="hidden" name="space[phone_booth]">
+    <label class="boolean optional" for="space_phone_booth">
+      <input class="boolean optional" type="checkbox" value="1" name="space[phone_booth]" id="space_phone_booth">Phone booth
+    </label>
+  </div>
+</div>
+
+<div class="form-group boolean optional space_cafe_restaurant"><div class="checkbox">
+  <input value="0" type="hidden" name="space[cafe_restaurant]">
+  <label class="boolean optional" for="space_cafe_restaurant">
+    <input class="boolean optional" type="checkbox" value="1" name="space[cafe_restaurant]" id="space_cafe_restaurant">Cafe restaurant
+  </label>
+</div>
+</div>
+
+<% Space.all.each do |space|%>
+<div class="form-group boolean optional space_always_open">
+  <div class="checkbox"><input value="0" type="hidden" name="space[always_open]">
+    <label class="boolean optional" for="space_always_open">
+      <input class="boolean optional" type="checkbox" value="1" name="space[always_open]" id="space_always_open">Always open
+    </label>
+  </div>
+</div>
+<% end %>
+</div>
+</div>
+
+
+
+

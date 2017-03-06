@@ -35,12 +35,15 @@ class SpacesController < ApplicationController
 
   def new
     @space = Space.new
-  end
+    @array1 = ['event_space',"bike_storage","kitchen","showers"]
+    @array2 = ["lockers","meeting_room","refreshment"]
+    @array3 = ["cafe_restaurant", "always_open","wifi"]
+end
 
   def create
     @space = Space.new(space_params)
     @space.user = current_user
-    if @space.save
+  if @space.save
       redirect_to @space, notice: 'Space was successfully created.'
     else
       render :new
