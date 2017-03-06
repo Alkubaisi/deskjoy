@@ -15,7 +15,10 @@
       <h3 class="dashh"><%= current_user.first_name %> <%= current_user.last_name %></h3>
       <h5 class="dashh"><%= link_to "Edit profile", edit_profile_path(current_user) %></h5>
     </div>
-    <%= link_to "Become Host", "#", class: "button" %>
+    <%= link_to "Become Host", new_space_path, class: "button" %>
+
+
+
   </div>
 
 
@@ -41,12 +44,21 @@
   <div class="row">
 
     <div class="col-xs-12 col-md-12">
-        <h1>My space:</h1><hr>
+        <h1>My space:</h1>
+  <%= link_to "Add Space", new_space_path, class: "btn btn-primary" %>
+        <hr>
+
 
       <table class="layout display responsive-table">
         <!-- start box -->
         <% current_user.spaces.each do |space| %>
-        <h3><%= space.company_name %></h3>
+
+        <h4>Space: <%= space.company_name %>
+        </h4><p><%= link_to space_path(space), method: :delete, data: { confirm: 'Are you sure?' } do  %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to edit_space_path(space) do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %></p>
 
 
 
@@ -82,7 +94,9 @@
 
       </table>
      <%= link_to "Add table", new_space_table_path(space), class: "btn btn-primary" %>
+     <hr>
       <% end %>
+
       <!-- end box -->
 
     </div>
