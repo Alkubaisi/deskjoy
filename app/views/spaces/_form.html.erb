@@ -1,53 +1,73 @@
 
 <div class="newspacewrapper">
 
-<div class="toppic">
-  <h1>Add Space </h1>
-  <p>
+  <div class="toppic">
+    <h1>Add Space </h1>
+    <p>
 
 
-please enter your details below, if you have questions you can reach us using the link provided.</p>
-<hr>
-</div>
-
-<div class="add-form">
-  <%= simple_form_for(@space) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-
-     <%= f.input :company_name, input_html: { placeholder: "Company name", class: 'form-control input-lg' } %>
-    <%= f.input :address , input_html: { placeholder: "Address", class: 'form-control input-lg', :cols => 5, :rows => 4 } %>
-    <%= f.input :industry, :input_html => { placeholder: "Industry", class: 'input-lg' }, collection: Space::INDUSTRYLIST %>
-    <%= f.input :company_info, :input_html => { class: 'test', :cols => 5, :rows => 10 } %>
-    <div class="row">
-    <div class="col-xs-4">    <%= f.input :reception %>
-     <%= f.input :bike_storage %>
-     <%= f.input :kitchen %>
-       <%= f.input :showers %>
-        <%= f.input :wifi %>
-      </div>
-      <div class="col-xs-4">    <%= f.input :security %>
-         <%= f.input :lockers %>
-         <%= f.input :meeting_room %>
-           <%= f.input :refreshment %>
-      </div>
-      <div class="col-xs-4">    <%= f.input :event_space %>
-       <%= f.input :phone_booth %>
-       <%= f.input :cafe_restaurant %>
-       <%= f.input :always_open %>
-      </div>
+      please enter your details below, if you have questions you can reach us using the link provided.</p>
+      <hr>
     </div>
 
+    <div class="add-form">
+      <%= simple_form_for(@space) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+
+       <%= f.input :company_name, input_html: { placeholder: "Company name", class: 'form-control input-lg' } %>
+       <%= f.input :address , input_html: { placeholder: "Address", class: 'form-control input-lg', :cols => 5, :rows => 4 } %>
+       <%= f.input :industry, :input_html => { placeholder: "Industry", class: 'input-lg' }, collection: Space::INDUSTRYLIST %>
+       <%= f.input :company_info, :input_html => {  placeholder: "A short introduction about your company",   class: 'test', :cols => 5, :rows => 10 } %>
+       <div class="row">
+         <div class="col-xs-4">
+           <% array1.each do |title|%>
+           <div class="form-group boolean optional space_<%= title %>">
+            <div class="checkbox">
+            <input value="0" type="hidden" name="space[<%= title %>]">
+              <label class="boolean optional" for="space_<%= title %>">
+                <input class="boolean optional" type="checkbox" value="true" name="space[<%= title %>]" id="space_<%= title %>"><%= title.capitalize.gsub("_", " ") %>
+              </label>
+            </div>
+          </div>
+          <% end %>
+         </div>
+         <div class="col-xs-4">
+           <% array2.each do |title|%>
+           <div class="form-group boolean optional space_<%= title %>">
+            <div class="checkbox">
+            <input value="0" type="hidden" name="space[<%= title %>]">
+              <label class="boolean optional" for="space_<%= title %>">
+                <input class="boolean optional" type="checkbox" value="true" name="space[<%= title %>]" id="space_<%= title %>"><%= title.capitalize.gsub("_", " ") %>
+              </label>
+            </div>
+          </div>
+          <% end %>
+         </div>
+         <div class="col-xs-4">
+           <% array3.each do |title|%>
+           <div class="form-group boolean optional space_<%= title %>">
+            <div class="checkbox">
+            <input value="0" type="hidden" name="space[<%= title %>]">
+              <label class="boolean optional" for="space_<%= title %>">
+                <input class="boolean optional" type="checkbox" value="true" name="space[<%= title %>]" id="space_<%= title %>"><%= title.capitalize.gsub("_", " ") %>
+              </label>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
 
 
-    <%= f.input :photos, as: :attachinary %>
 
+      <%= f.input :photos, as: :attachinary, required: true %>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, {class: "btn btn-primary" } %>
+    </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, {class: "btn btn-primary" } %>
-  </div>
-  <% end %>
-</div>
 </div>
