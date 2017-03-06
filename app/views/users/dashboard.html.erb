@@ -44,7 +44,7 @@
   <div class="row">
 
     <div class="col-xs-12 col-md-12">
-        <h1>My space:</h1>
+        <h1>My spaces:</h1>
   <%= link_to "Add Space", new_space_path, class: "btn btn-primary" %>
         <hr>
 
@@ -53,12 +53,12 @@
         <!-- start box -->
         <% current_user.spaces.each do |space| %>
 
-        <h4>Space: <%= space.company_name %>
-        </h4><p><%= link_to space_path(space), method: :delete, data: { confirm: 'Are you sure?' } do  %>
+        <h4><strong>Space name:</strong> <%= space.company_name %> <span class="dashsp"><%= link_to space_path(space), method: :delete, data: { confirm: 'Are you sure?' } do  %>
               <i class="fa fa-trash-o" aria-hidden="true"></i>
               <% end %>
               <%= link_to edit_space_path(space) do %>
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %></p>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %></span>
+        </h4>
 
 
 
