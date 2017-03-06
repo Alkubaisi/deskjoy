@@ -25,7 +25,6 @@
         </li>
       </ul>
     </nav> <!-- end .main-nav -->
-    <a href="" class="responsive-menu-open"><i class="fa fa-bars"></i></a>
   </div> <!-- end .navigation -->
   <div class="right">
   <% if current_user %>
@@ -35,11 +34,9 @@
     <%= link_to "Add Listing", new_space_path, class: "button border" %>
     <%= link_to "Log In", new_user_session_path, class: "button login-open" %>
   <% end %>
-  </div> <!-- end .left -->
+
+  </div> <!-- end .right -->
+
+
+
 </header> <!-- end .header -->
-<div class="responsive-menu">
-  <a href="" class="responsive-menu-close"><i class="fa fa-times"></i></a>
-  <nav class="responsive-nav">
-  </nav> <!-- end .responsive-nav -->
-</div>
-<!-- end .responsive-menu -->
