@@ -5,13 +5,27 @@
   width: 100%;
   filter: blur(0.5px);
 }
+
 .newswrap {
   margin-top: -110px;
 }
 
-
 .newtable {
-
   margin-top: 200px;
   margin-bottom: 200px;
+}
+
+.checkbox {
+  padding: 20px;
+  background-color: #B9B8B9;
+  width: 200px;
+  opacity: 0.4;
+
+  &.active {
+    background-color: green;
+  }
+
+  label {
+    padding-left: 0;
+  }
 }

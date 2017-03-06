@@ -35,9 +35,7 @@ class SpacesController < ApplicationController
 
   def new
     @space = Space.new
-    @array1 = ['event_space',"bike_storage","kitchen","showers"]
-    @array2 = ["lockers","meeting_room","refreshment"]
-    @array3 = ["cafe_restaurant", "always_open","wifi"]
+    @amenities = ['event_space',"bike_storage","kitchen","showers", "lockers","meeting_room","refreshment", "cafe_restaurant", "always_open","wifi"]
 end
 
   def create
