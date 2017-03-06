@@ -1227,7 +1227,7 @@ h5 {
    05. Footer
    ========================================================================== */
 .footer .top {
-	background: #fff;
+	background: rgba(23,36,52,.9);
 	position: relative;
 	height: 160px;
 }
@@ -1296,7 +1296,8 @@ h5 {
 	.footer .top .logo {
 		height: 120px;
 	}
-	.footer .top .logo a {
+
+  .footer .top .logo a {
 		max-height: 120px;
 	}
 	.footer .top .right {
