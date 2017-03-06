@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170305145643) do
     t.boolean  "status",     default: false
     t.index ["table_id"], name: "index_bookings_on_table_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
-  endmap(&:id)
+  end
 
   create_table "spaces", force: :cascade do |t|
     t.integer  "user_id"
