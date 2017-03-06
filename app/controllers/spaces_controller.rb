@@ -50,6 +50,15 @@ end
     end
   end
 
+
+    def destroy
+    @space = Space.find(params[:id])
+
+    if @space.destroy
+      redirect_to dashboard_path, notice: 'Space was successfully destroyed.'
+    end
+  end
+
   private
 
   def set_space
