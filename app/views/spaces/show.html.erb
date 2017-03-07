@@ -28,7 +28,7 @@
         <div class="show-flexbox">
           <div>
             <h1><%= @space.company_name %></h1>
-            <h4><%= @space.address %></h4>
+            <h4><%= @space.address %> - <%= @space.industry %></h4>
           </div>
           <div>
             <%= link_to profile_path(@space.user) do %>
@@ -145,7 +145,7 @@
 
 
 <% content_for(:after_js) do %>
-<% javascript_tag do %>
+<script>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
       handler.buildMap({
@@ -165,7 +165,6 @@
         }
       });
     });
-
-<% end %>
+</script>
 <% end %>
 
