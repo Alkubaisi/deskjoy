@@ -3,36 +3,34 @@
     <div class="container">
       <h1>Find Workspace Within Your Industry</h1>
       <p class="lead">Find great places to work with local experts.</p>
-      <form align="center">
-        <div class="row" align="center">
-
-        <form action="/action_page.php">
-  First name:<br>
-  <input type="text" name="address" value="Mickey">
-  <br>
-  Last name:<br>
-  <input type="text" name="industry" value="Mouse">
-  <br><br>
-  <input type="submit" value="Submit" formmethod="get" formaction="/spaces">
-</form>
-
-        </div> <!-- end .col-sm-4 -->
-        <div class="col-sm-4">
-          <div class="form-group">
-
-          </div> <!-- end .form-group -->
-        </div> <!-- end .col-sm-4 -->
-      </div> <!-- end .row -->
-
-
-    </form>
-    <div class="highlight-slider-wrapper">
       <div class="row">
-      </div> <!-- end .inner -->
-    </div> <!-- end .col-md-3 -->
+
+        <form action="<%= spaces_path %>" class="form-inline">
+          <label for="location">Location:</label>
+          <input type="text" name="location" required class="form-control" placeholder="London">
+
+          <select name="radius" class="form-control">
+            <option value="1">1 mile</option>
+            <option value="3" selected>3 miles</option>
+            <option value="5">5 miles</option>
+            <option value="10">10 miles</option>
+            <option value="20">20 miles</option>
+          </select>
+
+          <label for="industry">Industry:</label>
+          <select name="industry" class="form-control">
+            <option value="all">All</option>
+            <% Space::INDUSTRYLIST.each do |industry| %>
+            <option value="<%= industry %>"><%= industry %></option>
+            <% end %>
+          </select>
+          <input type="submit" value="Search" class="btn btn-primary">
+        </form>
+
+      </div> <!-- end .col-sm-4 -->
+    </div> <!-- end .row -->
   </div> <!-- end .row -->
 </div> <!-- end .text-center -->
-</div> <!-- end .container -->
 
 
 <div class="section-padded container">
@@ -109,3 +107,11 @@
     </div>
   </div>
 </div>
+
+<%= content_for :after_js do %>
+<script>
+  $( "select" ).select2({
+    theme: "bootstrap"
+  });
+</script>
+<% end %>
