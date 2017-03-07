@@ -16,7 +16,7 @@ devise_for :users,
 
   resources :spaces do
     resources :bookings, only: [:create]
-    resources :tables, only: [:index, :create, :edit, :update, :new, :destroy]
+    resources :tables, only: [:index, :create, :edit, :update, :new, :destroy, :city, :postcode]
   end
 end
 
