@@ -23,17 +23,24 @@ $(window).scroll(function() {
 
 $('#bookingdate-from').datepicker({
   format: "dd/mm/yyyy",
+  autoclose: true,
+  todayHighlight: true
   // defaultDate: new Date(),
   // disabledDates: [],
   // sideBySide: true,
   // minDate: new Date(),
 });
 
+
+
 $('#bookingdate-to').datepicker({
   format: "dd/mm/yyyy",
+  autoclose: true,
+  todayHighlight: true
   // defaultDate: new Date(),
   // disabledDates: [],
   // sideBySide: true,
   // minDate: new Date(),
   // useCurrent: false,
 });
+
