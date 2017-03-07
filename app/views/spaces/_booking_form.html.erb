@@ -4,7 +4,7 @@
       <h3 class="text-center">Book a Desk</h3>
       <%= simple_form_for [@space, @booking] do |f| %>
       <%= f.error_notification %>
-      <%= f.association :table, collection: @space.tables, label_method: lambda { |table| "Desk number: #{table.id}" } %>
+      <%= f.association :table, collection: @space.tables.map{|t| ["Desk number: #{t.id}", t.id, data: { price: t.price }] }  %>
       <div class="form-group">
         <span>From:</span>
         <div class='input-group date' id='bookingdate-from'>
@@ -31,7 +31,7 @@
       <p><%= @space.address %></p>
 
       <p>This is a placeholder</p>
-      <p>It will cost £100</p>
+      <p>It will cost £<span id='booking-price'>0</span></p>
 
       <div class="form-actions">
         <%= f.submit "Book now", {class: "btn btn-primary" } %>
@@ -40,3 +40,22 @@
     </div>
   </div>
 </div>
+
+
+<%= content_for(:after_js) do %>
+  <script>
+    $('#new_booking .form-control').on('change', function(){
+      var start = $('#bookingdate-from').datepicker('getDate');
+      var end = $('#bookingdate-to').datepicker('getDate');
+      var tablePrice = $('#booking_table_id option:selected').data('price');
+
+      if (start && end) {
+        nbDays = (end - start) / (24 * 60 * 60 * 1000)
+        if (nbDays > 0 && tablePrice) {
+          bookingPrice = nbDays * tablePrice;
+          $('#booking-price').html(bookingPrice);
+        }
+      }
+    });
+  </script>
+<% end %>

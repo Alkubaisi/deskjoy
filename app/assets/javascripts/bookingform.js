@@ -20,26 +20,20 @@ $(window).scroll(function() {
   }
 });
 
-$('#bookingdate-from').datetimepicker({
-  format: "DD/MM/YYYY HH:mm",
-  defaultDate: new Date(),
-  disabledDates: [],
-  sideBySide: true,
-  minDate: new Date(),
+
+$('#bookingdate-from').datepicker({
+  format: "dd/mm/yyyy",
+  // defaultDate: new Date(),
+  // disabledDates: [],
+  // sideBySide: true,
+  // minDate: new Date(),
 });
 
-$('#bookingdate-to').datetimepicker({
-  format: "DD/MM/YYYY HH:mm",
-  defaultDate: new Date(),
-  disabledDates: [],
-  sideBySide: true,
-  minDate: new Date(),
-  useCurrent: false,
-});
-
-$("#bookingdate-from").on("dp.change", function (e) {
-  $('#bookingdate-to').data("DateTimePicker").minDate(e.date);
-});
-$("#bookingdate-to").on("dp.change", function (e) {
-  $('#bookingdate-from').data("DateTimePicker").maxDate(e.date);
+$('#bookingdate-to').datepicker({
+  format: "dd/mm/yyyy",
+  // defaultDate: new Date(),
+  // disabledDates: [],
+  // sideBySide: true,
+  // minDate: new Date(),
+  // useCurrent: false,
 });
