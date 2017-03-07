@@ -52,6 +52,7 @@
       if (start && end) {
         nbDays = (end - start) / (24 * 60 * 60 * 1000)
         if (nbDays > 0 && tablePrice) {
+          $('#booking-price').html
           bookingPrice = nbDays * tablePrice;
           $('#booking-price').html(bookingPrice);
         }
