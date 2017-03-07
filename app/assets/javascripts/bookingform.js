@@ -1,9 +1,8 @@
-var bookingForm = $('#new-booking-form').offset().top
 $(window).scroll(function() {
-  if($(window).width() >= 768) {
+  if($(window).width() >= 768 && $('#new-booking-form')) {
     var currentScroll = $(window).scrollTop();
     var currentRightPos = $(window).width() - ($('#new-booking-form').offset().left + $('#new-booking-form').width() + 40) // 20 + 20 for padding
-    if (currentScroll >= bookingForm) {
+    if (currentScroll >= $('#new-booking-form').offset().top) {
       var currentWidth = $('#new-booking-form').width() + 40 // 20 + 20 for padding
       $('#new-booking-form').css({
         position: 'fixed',
