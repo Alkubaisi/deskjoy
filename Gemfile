@@ -29,6 +29,7 @@ gem "gmaps4rails"
 gem "algoliasearch-rails"
 gem "select2-rails"
 
+gem 'money-rails'
 
 gem 'rails-assets-underscore', source: 'https://rails-assets.org'
 
