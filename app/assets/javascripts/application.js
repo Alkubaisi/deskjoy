@@ -9,5 +9,6 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require slider
+//= require select2
 //= require_tree .
 
