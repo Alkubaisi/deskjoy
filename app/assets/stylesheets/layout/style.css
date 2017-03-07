@@ -642,6 +642,11 @@ h5 {
 	left: 64px;
 	z-index: 10;
 }
+
+#logonav {
+  padding-top: 10px;
+}
+
 .header .logo {
 	height: 90px;
 	font-size: 0;
@@ -804,6 +809,25 @@ h5 {
 		margin-top: 0;
 	}
 }
+
+.nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width:100%;
+}
+.nav-item {
+flex-shrink: 1;
+}
+
+.dropdown-menu {
+  text-align: center;
+}
+
+
+
 
 /* Navigation
    ========================================================================== */
