@@ -63,54 +63,54 @@
           <% end %>
 
 
-           <% if @space.reception %>
+          <% if @space.reception %>
           <p>Reception available</p>
           <% end %>
 
 
-           <% if @space.security %>
+          <% if @space.security %>
           <p>Security available</p>
           <% end %>
 
 
-           <% if @space.bike_storage %>
+          <% if @space.bike_storage %>
           <p>Bike Storage available</p>
           <% end %>
 
 
-           <% if @space.phone_booth %>
+          <% if @space.phone_booth %>
           <p>Phone Booth available</p>
           <% end %>
 
 
-           <% if @space.kitchen %>
+          <% if @space.kitchen %>
           <p>Kitchen available</p>
           <% end %>
 
-             <% if @space.lockers %>
+          <% if @space.lockers %>
           <p>Lockers available</p>
           <% end %>
 
-           <% if @space.cafe_restaurant %>
+          <% if @space.cafe_restaurant %>
           <p>Cafe/restaurant available</p>
           <% end %>
 
-           <% if @space.showers %>
+          <% if @space.showers %>
           <p>Showers available</p>
           <% end %>
 
 
-               <% if @space.meeting_room %>
+          <% if @space.meeting_room %>
           <p>Meeting room available</p>
           <% end %>
 
 
-               <% if @space.always_open %>
+          <% if @space.always_open %>
           <p>24/7 Accesss</p>
           <% end %>
 
 
-               <% if @space.wifi %>
+          <% if @space.wifi %>
           <p>Wifi available</p>
           <% end %>
         </div>
@@ -146,25 +146,75 @@
 
 <% content_for(:after_js) do %>
 <script>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({
-        internal: { id: 'map' },
-        provider: {
-          scrollwheel: false,
-          styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
-        }
-      }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
+  $(document).ready(function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap({
+      internal: { id: 'map' },
+      provider: {
+        scrollwheel: false,
+        styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
+      }
+    }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
     });
+
+
+
+
+    var initTop = $('#new-booking-form').offset().top;
+        var initWidth = $('#new-booking-form').width() + 40; // 20 + 20 for padding
+        var initRight = $('#new-booking-form').offset().right;
+
+        $(window).scroll(function() {
+
+          if($(window).width() >= 768 && $('#new-booking-form')) {
+            var currentScroll = $(window).scrollTop();
+
+            if (currentScroll < initTop) {
+              $('#new-booking-form').css({
+                position: 'static',
+                width: initWidth
+              });
+            } else {
+
+              $('#new-booking-form').css({
+                position: 'fixed',
+                top: 0,
+                right: initRight,
+                width: initWidth
+              });
+            }
+          }
+        });
+
+        $('#bookingdate-from').datepicker({
+          format: "dd/mm/yyyy",
+          autoclose: true,
+          todayHighlight: true
+          // defaultDate: new Date(),
+          // disabledDates: [],
+          // sideBySide: true,
+          // minDate: new Date(),
+        });
+
+        $('#bookingdate-to').datepicker({
+          format: "dd/mm/yyyy",
+          autoclose: true,
+          todayHighlight: true
+          // defaultDate: new Date(),
+          // disabledDates: [],
+          // sideBySide: true,
+          // minDate: new Date(),
+          // useCurrent: false,
+        });
+      });
 </script>
 <% end %>
 

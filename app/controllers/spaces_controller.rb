@@ -1,6 +1,6 @@
 class SpacesController < ApplicationController
   before_action :set_space, only: [:show, :edit, :update]
-   before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index]
 
   def index
     @spaces = Space.all
@@ -16,8 +16,8 @@ class SpacesController < ApplicationController
 
   def show
     @booking = Booking.new
-   @hash = Gmaps4rails.build_markers(@space) do |space, marker|
-        marker.lat space.latitude
+    @hash = Gmaps4rails.build_markers(@space) do |space, marker|
+      marker.lat space.latitude
       marker.lng space.longitude
     end
   end
@@ -39,13 +39,13 @@ class SpacesController < ApplicationController
   def new
     @space = Space.new
     @amenities = ['event_space',"bike_storage","kitchen","showers", "lockers","meeting_room","refreshment", "cafe_restaurant", "always_open","wifi"]
-end
+  end
 
   def create
     @space = Space.new(space_params)
     @space.user = current_user
 
-  if @space.save!
+    if @space.save!
       redirect_to @space, notice: 'Space was successfully created.'
     else
       render :new
@@ -53,7 +53,7 @@ end
   end
 
 
-    def destroy
+  def destroy
     @space = Space.find(params[:id])
 
     if @space.destroy
