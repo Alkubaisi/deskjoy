@@ -3,7 +3,8 @@ class SpacesController < ApplicationController
    before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    @spaces = Space.where.not(latitude: nil, longitude: nil)
+
+    @spaces = Space.where.not(latitude: nil, longitude: nil).where(industry: params[:industry])
     @hash = Gmaps4rails.build_markers(@spaces) do |space, marker|
       marker.lat space.latitude
       marker.lng space.longitude
@@ -41,7 +42,8 @@ end
   def create
     @space = Space.new(space_params)
     @space.user = current_user
-  if @space.save
+
+  if @space.save!
       redirect_to @space, notice: 'Space was successfully created.'
     else
       render :new

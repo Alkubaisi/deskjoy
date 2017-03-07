@@ -5,39 +5,33 @@
       <p class="lead">Find great places to work with local experts.</p>
       <form align="center">
         <div class="row" align="center">
-          <div class="col-sm-4">
-            <div class="form-group">
-              <input type="text" placeholder="What are you looking for ?">
-            </div> <!-- end .form-group -->
-          </div> <!-- end .col-sm-4 -->
-          <div class="col-sm-4">
-            <div class="form-group">
-              <input type="text" placeholder="Location">
-              <i class="pe-7s-world"></i>
-            </div> <!-- end .form-group -->
-          </div> <!-- end .col-sm-4 -->
-          <div class="col-sm-4">
-            <div class="form-group">
-              <select class="selectpicker" data-live-search="true">
-                <option>All categories</option>
-                <option>Digital</option>
-                <option>Design'</option>
-                <option>Creative</option>
-                <option>Print</option>
-                <option>Production</option>
-                <option>Architecture</option>
-              </select>
-            </div> <!-- end .form-group -->
-          </div> <!-- end .col-sm-4 -->
-        </div> <!-- end .row -->
-        <button type="submit" class="button">Search desks</button>
-      </form>
-      <div class="highlight-slider-wrapper">
-        <div class="row">
-        </div> <!-- end .inner -->
-      </div> <!-- end .col-md-3 -->
-    </div> <!-- end .row -->
-  </div> <!-- end .text-center -->
+
+        <form action="/action_page.php">
+  First name:<br>
+  <input type="text" name="address" value="Mickey">
+  <br>
+  Last name:<br>
+  <input type="text" name="industry" value="Mouse">
+  <br><br>
+  <input type="submit" value="Submit" formmethod="get" formaction="/spaces">
+</form>
+
+        </div> <!-- end .col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="form-group">
+
+          </div> <!-- end .form-group -->
+        </div> <!-- end .col-sm-4 -->
+      </div> <!-- end .row -->
+
+
+    </form>
+    <div class="highlight-slider-wrapper">
+      <div class="row">
+      </div> <!-- end .inner -->
+    </div> <!-- end .col-md-3 -->
+  </div> <!-- end .row -->
+</div> <!-- end .text-center -->
 </div> <!-- end .container -->
 
 

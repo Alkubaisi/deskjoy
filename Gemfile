@@ -26,6 +26,8 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem "gmaps4rails"
+gem "algoliasearch-rails"
+
 
 gem 'rails-assets-underscore', source: 'https://rails-assets.org'
 
