@@ -8,7 +8,7 @@
       <div class="form-group">
         <span>From:</span>
         <div class='input-group date' id='bookingdate-from'>
-          <%= f.input :start_date, label: false %>
+          <input type="text" class="input-sm form-control" name="start" />
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
@@ -18,7 +18,7 @@
       <div class="form-group">
         <span>To:</span>
         <div class='input-group date' id='bookingdate-to'>
-          <%= f.input :end_date, label: false %>
+         <input type="text" class="input-sm form-control" name="end" />
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
@@ -30,8 +30,8 @@
       <h4 class="text-center">Booking Summary</h4>
       <p><%= @space.address %></p>
 
-      <p>This is a placeholder</p>
-      <p>It will cost £<span id='booking-price'>0</span></p>
+
+      <p>TOTAL COST:  £<span id='booking-price'>0</span></p>
 
       <div class="form-actions">
         <%= f.submit "Book now", {class: "btn btn-primary" } %>
