@@ -1,42 +1,90 @@
 <header class="header clearfix">
-  <div class="left">
-    <div class="logo">
-      <%= link_to root_path do %>
+  <div class="nav-container">
+
+    <div class="nav-item" class="nav-logo">
+
+      <div class="logo">
+        <%= link_to root_path do %>
         <%= image_tag "logo.png", height: 100; %>
-      <% end %>
-    </div> <!-- end .logo -->
-    <form action="/spaces" class="header-search">
-      <input type="text" placeholder="I’m searching for ...">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div> <!-- end .left -->
-  <div class="navigation clearfix">
-    <nav class="main-nav">
-      <ul class="list-unstyled">
-        <li class="menu-item-has-children">
-          <%= link_to "Spaces", spaces_path %>
-        </li>
-        <li class="menu-item-has-children">
-    <%= link_to "About us", about_path %>
-        </li>
+        <% end %>
+      </div> <!-- end .logo -->
 
-        <li class="menu-item-has-children">
-    <%= link_to "Contact us", contact_path %>
-        </li>
-      </ul>
-    </nav> <!-- end .main-nav -->
-  </div> <!-- end .navigation -->
-  <div class="right">
-  <% if current_user %>
-    <%= link_to "Dashboard", dashboard_path, class: "button border" %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button login-open" %>
-  <% else %>
-    <%= link_to "Add Listing", new_space_path, class: "button border" %>
-    <%= link_to "Log In", new_user_session_path, class: "button login-open" %>
-  <% end %>
+    </div>
 
-  </div> <!-- end .right -->
+    <div class="nav-item" class="nav-searchbar">
+      <form action="/spaces" class="header-search">
+        <input type="text" placeholder="Search for offices ...">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
 
+    <div class="nav-item" class="nav-links">
+      <div class="navigation clearfix" >
+        <nav class="main-nav">
+          <ul class="list-unstyled" class="flexitem">
 
+            <li class="menu-item-has-children">
+              <%= link_to "Spaces", spaces_path %>
+            </li>
+
+            <li class="menu-item-has-children">
+              <%= link_to "About us", about_path %>
+            </li>
+
+            <li class="menu-item-has-children">
+              <%= link_to "Contact us", contact_path %>
+            </li>
+          </ul>
+        </nav> <!-- end .main-nav -->
+      </div> <!-- end .navigation -->
+    </div>
+
+    <div class="nav-item" class="nav-buttons">
+     <!-- Sign in sign out buttons -->
+     <% if current_user %>
+     <%= link_to "Dashboard", dashboard_path, class: "button border" %>
+     <% else %>
+     <%= link_to "Add Listing", new_space_path, class: "button border" %>
+     <%= link_to "Log In", new_user_session_path, class: "button login-open" %>
+     <% end %>
+   </div>
+
+   <div class="nav-item" class="nav-user-profile">
+     <!-- Profile picture and dropdown -->
+     <% if current_user %>
+     <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
+          <li><%= link_to 'Profile', profile_path(current_user) %></li>
+          <li><%= link_to 'Dashboard', dashboard_path %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </div>
+    </div>
+    <% else %>
+    <% end %>
+  </div>
+</div>
 
 </header> <!-- end .header -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="right">
+-->
+
+
+<!-- </div> --> <!-- end .right -->
+
+
+
