@@ -18,6 +18,12 @@ class SpacesController < ApplicationController
       marker.lng space.longitude
       marker.infowindow render_to_string(partial: "/spaces/map_box", locals: { space: space })
     end
+
+    respond_to do |format|
+      format.html {}
+      format.js   {}
+    end
+
   end
 
   def show

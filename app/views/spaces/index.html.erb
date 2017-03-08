@@ -1,7 +1,7 @@
 <div class="topfilter">
   <div class="container">
-    <h2 class="text-center">Facilities</h2>
-    <%= form_tag spaces_path, method: :get do %>
+    <h2 class="text-center" style="font-size: 19px;font-weight: bold;">Facilities</h2>
+    <%= form_tag spaces_path, method: :get, remote: true, id: "filter-form" do %>
       <div class="amenities">
       <% Space::AMENITIES.each do |title|%>
         <label class="boolean text-center optional checkbox <%= (params[:amenities] && params[:amenities].include?(title)) ? "active" : "" %>" for="space_<%= title %>">
@@ -16,78 +16,14 @@
       <%= hidden_field_tag :location, params[:location] %>
       <%= hidden_field_tag :radius, params[:radius] %>
       <%= hidden_field_tag :industry, params[:industry] %>
-      <%= submit_tag "filter" %>
     <% end %>
   </div>
 </div>
 
-<div class="container-fluid not-padded" style="background-color: white;">
-  <div class="col-xs-12 col-md-8 not-padded">
-    <div class="results-container">
-      <% if @spaces.empty? %>
-        <h3 class="text-center">No space with your facilities :(</h3>
-      <% end %>
-      <% @spaces.each do |space|  %>
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 not-padded">
-           <div class="hovereffect">
-
-              <div class="space-card">
-                <div class="image1" style="background-image: linear-gradient(rgba(39,40,34,0),rgba(39,40,34,1)), url(<%= cl_image_path space.photos.first.path %>);">
-
-
-               <div class="cardtitle"><h3><%= space.company_name %></h3></div>
-               <div class="cardindustry">
-                <p><%= space.industry %></p>
-                </div>
-
-                      <div class="overlay">
-                          <ul class="list-inline ulcard">
-                           <li><i class="fa fa-twitter  fa-2x" aria-hidden="true"></i></li>
-                           <li><i class="fa fa-facebook-square  fa-2x" aria-hidden="true"></i></li>
-                         </ul>
-                         <p class="pinfo"><%= space.company_info.split(" ")[0..15].join(" ") %>...</p>
-
-                         <%= link_to "View", space, class: "info" %>
-                      </div>
-
-                  </div>
-              </div>
-            </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="col-xs-12 col-md-4 not-padded">
-    <div id="map" style="width: 100%; height: 600px;"></div>
-  </div>
+<div id="index-results">
+  <%= render "index_results" %>
 </div>
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({
-        internal: { id: 'map' },
-        provider: {
-          scrollwheel: false,
-          styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
-        }
-      }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
 
-    $('.amenities .checkbox input').click(function() {
-      $(this).parent().parent().toggleClass('active');
-    })
-  <% end %>
-<% end %>
 
 
 
