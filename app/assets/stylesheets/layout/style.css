@@ -510,23 +510,6 @@ h5 {
 	margin-top: 12px;
 	margin-bottom: 0;
 }
-/*.checkbox {
-	margin: 40px 0;
-}*/
-.checkbox label, .radio label {
-	color: #282828;
-	line-height: 28px;
-	font-size: 15px;
-	font-family: 'Montserrat', sans-serif;
-	letter-spacing: .45px;
-	font-weight: 700;
-	padding-left: 28px;
-}
-.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
-	margin: 0;
-	margin-left: -28px;
-	margin-top: 8px;
-}
 .submit {
 	margin-top: 50px;
 }
@@ -2478,21 +2461,7 @@ flex-shrink: 1;
 	-o-transition-delay: .5s;
 	transition-delay: .5s;
 }
-.login .form-group {
-	margin-bottom: 30px;
-}
-.login .checkbox {
-	margin: 0;
-	float: left;
-}
-.login .checkbox label {
-	font-size: 14px;
-	line-height: 28px;
-	letter-spacing: .7px;
-	color: #fff;
-	font-family: 'Poppins', sans-serif;
-	font-weight: 400;
-}
+
 .login .lost-password {
 	float: right;
 }
@@ -2583,18 +2552,6 @@ flex-shrink: 1;
 }
 .signup .form-group {
 	margin-bottom: 30px;
-}
-.signup .checkbox {
-	margin: 0;
-	float: left;
-}
-.signup .checkbox label {
-	font-size: 14px;
-	line-height: 28px;
-	letter-spacing: .7px;
-	color: #fff;
-	font-family: 'Poppins', sans-serif;
-	font-weight: 400;
 }
 .signup .lost-password {
 	float: right;

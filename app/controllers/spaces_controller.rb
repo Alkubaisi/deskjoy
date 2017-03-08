@@ -7,11 +7,23 @@ class SpacesController < ApplicationController
     @spaces = @spaces.where(industry: params[:industry]) if (params[:industry] && params[:industry] != "all")
     @spaces = @spaces.near(params[:location], params[:radius]) if (params[:location] && params[:radius])
 
+    if params[:amenities]
+      @spaces = @spaces.select do |space|
+        params[:amenities].all? { |amenity| space[amenity] }
+      end
+    end
+
     @hash = Gmaps4rails.build_markers(@spaces) do |space, marker|
       marker.lat space.latitude
       marker.lng space.longitude
       marker.infowindow render_to_string(partial: "/spaces/map_box", locals: { space: space })
     end
+
+    respond_to do |format|
+      format.html {}
+      format.js   {}
+    end
+
   end
 
   def show
@@ -41,11 +53,15 @@ class SpacesController < ApplicationController
   end
 
   def create
+    amenities = params[:space][:amenities]
     @space = Space.new(space_params)
     @space.user = current_user
 
     if @space.save!
-      redirect_to @space, notice: 'Space was successfully created.'
+      amenities.each do |amenity|
+        @space.update_attribute(amenity.to_sym, true)
+      end
+      redirect_to @space, notice: "Space was successfully created. <a href='#{dashboard_path}' class='alert-cta'>Add desks in your dashboard</a>"
     else
       render :new
     end

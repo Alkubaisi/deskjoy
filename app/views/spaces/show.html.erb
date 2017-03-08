@@ -34,7 +34,7 @@
             <%= link_to profile_path(@space.user) do %>
             <div class="owner-div">
               <%= avatar_for_user_show(@space.user) %>
-              <%= @space.user.first_name %> <%= @space.user.last_name %>
+              <span><%= @space.user.first_name %> <%= @space.user.last_name %></span>
             </div>
             <% end %>
           </div>
@@ -58,61 +58,6 @@
       <div class="row">
         <div class="show-card">
           <h3>Amenities</h3>
-          <% if @space.event_space %>
-          <p>Event space available</p>
-          <% end %>
-
-
-          <% if @space.reception %>
-          <p>Reception available</p>
-          <% end %>
-
-
-          <% if @space.security %>
-          <p>Security available</p>
-          <% end %>
-
-
-          <% if @space.bike_storage %>
-          <p>Bike Storage available</p>
-          <% end %>
-
-
-          <% if @space.phone_booth %>
-          <p>Phone Booth available</p>
-          <% end %>
-
-
-          <% if @space.kitchen %>
-          <p>Kitchen available</p>
-          <% end %>
-
-          <% if @space.lockers %>
-          <p>Lockers available</p>
-          <% end %>
-
-          <% if @space.cafe_restaurant %>
-          <p>Cafe/restaurant available</p>
-          <% end %>
-
-          <% if @space.showers %>
-          <p>Showers available</p>
-          <% end %>
-
-
-          <% if @space.meeting_room %>
-          <p>Meeting room available</p>
-          <% end %>
-
-
-          <% if @space.always_open %>
-          <p>24/7 Accesss</p>
-          <% end %>
-
-
-          <% if @space.wifi %>
-          <p>Wifi available</p>
-          <% end %>
         </div>
       </div>
 
@@ -123,10 +68,9 @@
             <tbody  class="text-center">
               <% @space.tables.each do |table| %>
               <tr>
-                <td><%= table.id %></td>
                 <td><%= table.desk_type %></td>
-                <td><%= table.price %></td>
-                <td>Yes</td>
+                <td>£<%= table.price %></td>
+                <td>Available <i class="fa fa-check"></i></td>
               </tr>
               <% end %>
             </tbody>
