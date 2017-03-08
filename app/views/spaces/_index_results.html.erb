@@ -1,0 +1,36 @@
+<div class="container-fluid not-padded" id="results-spaces" style="background-color: white;">
+ <%= render 'result_index', spaces: @spaces%>
+</div>
+
+  <div class="col-xs-12 col-md-4 not-padded">
+    <div id="map" style="width: 100%; height: 500px;"></div>
+  </div>
+</div>
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({
+        internal: { id: 'map' },
+        provider: {
+          scrollwheel: false,
+          styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
+        }
+      }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+
+    $('.amenities .checkbox input').click(function() {
+      $(this).parent().parent().toggleClass('active');
+      $("#filter-form").submit();
+    })
+  <% end %>
+<% end %>

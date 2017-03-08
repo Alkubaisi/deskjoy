@@ -2,7 +2,7 @@
 
 <div class="dash-card">
 <div class="toppic">
-  <h1>Add Table </h1>
+  <h1>Add a Desk </h1>
   <p>Please enter your details below, if you have questions you can reach us using the link provided.</p>
   <hr>
 </div>
@@ -12,17 +12,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :price, input_html: { placeholder: "Price", class: 'form-control input-lg' } %>
-    <%= f.input :desk_type, :input_html => { placeholder: "Desk type", class: 'input-lg' } %>
-    <%= f.input :available, label: 'Available from', :input_html => {class: 'input-lg' } %>
-    <%= f.input :not_available, label: 'Available to', :input_html => { class: 'input-lg' } %>
+    <%= f.input :price, input_html: { placeholder: "Price per day", class: 'form-control input-lg' } %>
+    <%= f.input :desk_type, :input_html => { placeholder: "Hot desk / Fixed desk / shared table", class: 'input-lg' } %>
+    <% f.input :available, label: 'Available from', :input_html => {class: 'input-lg' } %>
+    <% f.input :not_available, label: 'Available to', :input_html => { class: 'input-lg' } %>
   </div>
 
 
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, {class: "btn btn-primary" } %>
+    <%= f.button :submit, {class: "btn btn-primary",style: "padding: 20px; width:100%;"  } %>
   </div>
   <% end %>
 

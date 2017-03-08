@@ -2,10 +2,8 @@
 <div class="newspacewrapper">
 
   <div class="toppic">
-    <h1>Add Space </h1>
+    <h1>Add your Space </h1>
     <p>
-
-
       please enter your details below, if you have questions you can reach us using the link provided.</p>
       <hr>
     </div>
@@ -17,28 +15,21 @@
       <div class="form-inputs">
 
        <%= f.input :company_name, input_html: { placeholder: "Company name", class: 'form-control input-lg' } %>
-       <%= f.input :address , as: :string, input_html: { placeholder: "Address", class: 'form-control input-lg', :cols => 5, :rows => 4 } %>
-
-<%= f.input :city, :input_html => {  placeholder: "City", :cols => 5, :rows => 10 } %>
-
+       <%= f.input :address , as: :string, input_html: { placeholder: "Address", class: 'form-control input-lg' } %>
+        <%= f.input :city, :input_html => {  placeholder: "City", class: 'form-control input-lg'} %>
 
 
-
-       <%= f.input :industry, :input_html => { placeholder: "Industry", class: 'input-lg' }, collection: Space::INDUSTRYLIST %>
+       <%= f.input :industry, :input_html => { placeholder: "Industry", class: 'input-lg' }, collection: Space::INDUSTRYLIST, prompt: "Which industry are you in?" %>
        <%= f.input :company_info, :input_html => {  placeholder: "A short introduction about your company", :cols => 5, :rows => 10 } %>
 
         <div class="row text-center">
-         <% @amenities.each do |title|%>
+         <% Space::AMENITIES.each do |title|%>
          <div class="col-xs-12 col-sm-4">
-           <div class="form-group boolean optional space_cafe_restaurant">
-            <div class="checkbox">
-              <input class="boolean optional" type="hidden" value="0" name="space[<%= title %>]" id="space_<%= title %>">
-              <label class="boolean optional" for="space_<%= title %>">
-
+            <label class="boolean optional checkbox-amenity" for="space_<%= title %>">
+              <input class="hidden" type="checkbox" value="<%= title %>" name="space[amenities][]" id="space_<%= title %>">
               <%= title.tr('_', ' ').capitalize %>
-              </label>
-            </div>
-          </div>
+              <i class="fa fa-check"></i>
+            </label>
          </div>
          <% end %>
         </div>
@@ -48,7 +39,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, {class: "btn btn-primary" } %>
+      <%= f.button :submit, {class: "btn btn-primary", style: "padding: 20px; width:100%;" } %>
     </div>
     <% end %>
   </div>
@@ -57,8 +48,8 @@
 
 <%= content_for :after_js do %>
 <script>
-  $('.checkbox').click(function() {
-    $(this).toggleClass('active');
+  $('.checkbox-amenity input').click(function() {
+    $(this).parent().toggleClass('active');
   })
 </script>
 <% end %>
