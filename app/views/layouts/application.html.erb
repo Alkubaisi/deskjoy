@@ -7,6 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'application', media: 'all' %>
+
+
+<Title> <% = DeskJoy %> </ title>
+ <Meta name = "Find Workspace Within Your Industry" content = " <% = Find great places to work with local experts. %> ">
+
+ <! - Facebook Open Graph data ->
+ <Meta property = "og: title" content = " <% = DeskJoy %> " />
+ <Meta property = "og: type" content = "www.deskjoy.co.uk" />
+ <Meta property = "og: url" content = " <% = www.deskjoy.co.uk %> " />
+ <Meta property = "og: image" content = " <% = logo.png %> " />
+ <Meta property = "og: description" content = " <% = Find Workspace Within Your Industry %> " />
+ <Meta property = "og: site_name" content = " <% = DeskJoy %> " />
+
+ <! - Twitter Card data ->
+ <Meta name = "twitter: card" content = "summary_large_image">
+ <Meta name = "twitter: site" content = " <% = DEFAULT_META [ 'twitter_account' ] %> ">
+ <Meta name = "twitter: title" content = " <% = meta_title %> ">
+ <Meta name = "twitter: description" content = " <% = meta_description %> ">
+ <Meta name = "twitter: creator" content = " <% = DEFAULT_META [ 'twitter_account' ] %> ">
+ <Meta name = "twitter: image: src" content = " <% = image_url ( meta_image ) %> ">
+
+
+
+
   </head>
   <body>
     <%= render 'shared/navbarv2' %>
