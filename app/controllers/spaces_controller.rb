@@ -7,6 +7,12 @@ class SpacesController < ApplicationController
     @spaces = @spaces.where(industry: params[:industry]) if (params[:industry] && params[:industry] != "all")
     @spaces = @spaces.near(params[:location], params[:radius]) if (params[:location] && params[:radius])
 
+    if params[:amenities]
+      @spaces = @spaces.select do |space|
+        params[:amenities].all? { |amenity| space[amenity] }
+      end
+    end
+
     @hash = Gmaps4rails.build_markers(@spaces) do |space, marker|
       marker.lat space.latitude
       marker.lng space.longitude
