@@ -38,12 +38,15 @@ class SpacesController < ApplicationController
   end
 
   def update
+    amenities = params[:space][:amenities]
     respond_to do |format|
       if @space.update(space_params)
+         amenities.each do |amenity|
+        @space.update_attribute(amenity.to_sym, true)
+      end
         format.html { redirect_to @space, notice: 'space was successfully updated.' }
       else
         format.html { render :edit }
-
       end
     end
   end
