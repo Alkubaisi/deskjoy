@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+@import url('https://fonts.googleapis.com/css?family=Alegreya');
 .ptopleft {
   height: 200px;
   position: relative;
@@ -16,7 +16,11 @@
 
 
 
-
+.aboutme p {
+      font-weight: 100;
+    // color: #aaa;
+font-family: 'Alegreya', serif;
+}
 
 
 
