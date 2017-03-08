@@ -28,7 +28,7 @@
        <%= f.input :company_info, :input_html => {  placeholder: "A short introduction about your company", :cols => 5, :rows => 10 } %>
 
         <div class="row text-center">
-         <% @amenities.each do |title|%>
+         <% Space::AMENITIES.each do |title|%>
          <div class="col-xs-12 col-sm-4">
            <div class="form-group boolean optional space_cafe_restaurant">
             <div class="checkbox">

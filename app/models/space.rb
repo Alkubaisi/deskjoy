@@ -13,6 +13,18 @@ class Space < ApplicationRecord
     "Performing and visual arts"
   ]
 
+  AMENITIES = ['event_space',
+    "bike_storage",
+    "kitchen",
+    "showers",
+    "lockers",
+    "meeting_room",
+    "refreshment",
+    "cafe_restaurant",
+    "always_open",
+    "wifi"
+  ]
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 

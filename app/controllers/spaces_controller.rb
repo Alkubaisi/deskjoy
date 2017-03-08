@@ -38,7 +38,6 @@ class SpacesController < ApplicationController
 
   def new
     @space = Space.new
-    @amenities = ['event_space',"bike_storage","kitchen","showers", "lockers","meeting_room","refreshment", "cafe_restaurant", "always_open","wifi"]
   end
 
   def create
