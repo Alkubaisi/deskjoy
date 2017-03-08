@@ -1,4 +1,6 @@
 class ContactController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :new, :create ]
+
   def new
     @contact = Contact.new
   end

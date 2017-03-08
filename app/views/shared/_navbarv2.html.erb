@@ -13,7 +13,9 @@
 
     <div class="nav-item" class="nav-searchbar">
       <form action="/spaces" class="header-search">
-        <input type="text" placeholder="Search for offices ...">
+        <input type="text" name="location" placeholder="Search by location ...">
+        <input type="hidden" name="radius" value="<%= params[:radius] || 5 %>">
+        <input type="hidden" name="industry" value="<%= params[:industry] || 'all' %>">
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
