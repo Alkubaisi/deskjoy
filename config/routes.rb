@@ -15,7 +15,9 @@ devise_for :users,
   resources :profiles, only: [:show, :edit, :update]
 
   resources :spaces do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:show, :create] do
+      resources :payments, only: [:new, :create]
+    end
     resources :tables, only: [:index, :create, :edit, :update, :new, :destroy]
   end
 end
