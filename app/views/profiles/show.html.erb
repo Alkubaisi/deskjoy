@@ -10,27 +10,27 @@
   </div>
 </div>
 
-<div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
 
-  <div class="col-xs-12 col-md-6 col-md-offset-3 botomleft">
-    <div class="photoname">
-      <% if @user.photo? %>
-      <%= cl_image_tag @user.photo.path, class: 'avatar-square' %>
-      <% end %>
-      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-    </div>
+<div class="profile-card">
 
-    <div class="aboutme">
-      <h3>About me:</h3>
+
+
+
+ <div class="aboutme">
+      <h3>  <%= avatar_for_user_show(@user) %> About me:</h3>
       <hr>
       <% if @user.info? %>
       <p><%= @user.info %></p>
       <% end %>
     </div>
 
-    <div class="footerdiv" style="text-align: left;">
-      <div class="col-xs-12 col-md-6">
-        <div class="socialmedialist">
+
+
+
+<div class="socialmedialist">
           <ul class="list-inline">
             <% if @user.twitter? %>
             <li class="twittericon"> <%= link_to "http://twitter.com/#{@user.twitter}" do %>
@@ -55,16 +55,104 @@
           </ul>
 
         </div>
-      </div>
-      <div class="col-xs-12 col-md-6">
-        <div class="emailnumber">
+
+
+
+
+           <div class="emailnumber">
           <ul class="list-inline socialmedialist">
             <li><i class="fa fa-envelope-o" aria-hidden="true"></i> : <%= @user.email %> </li>
             <li><i class="fa fa-phone" aria-hidden="true"></i> : <%= @user.phonenumber %></li>
             <li></li>
           </ul>
         </div>
-      </div>
+
+
+
+       </div>
     </div>
+
+
+
+
+
+<!-- host spaces start -->
+
+
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+
+<div class="profile-card">
+
+
+<h1>Host Spaces</h1>
+
+
+<div class="row">
+    <% if @user.spaces.empty? %>
+      <h3 class="text-center">No space with your facilities :(</h3>
+    <% end %>
+    <% @user.spaces.each do |space|  %>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 not-padded">
+         <div class="hovereffect">
+
+            <div class="space-card">
+              <div class="image1" style="background-image: linear-gradient(rgba(39,40,34,0),rgba(39,40,34,1)), url(<%= cl_image_path space.photos.first.path %>);">
+
+
+             <div class="cardtitle"><h3><%= space.company_name %></h3></div>
+             <div class="cardindustry">
+              <p><%= space.industry %></p>
+              </div>
+
+                    <div class="overlay">
+                        <ul class="list-inline ulcard">
+                         <li><i class="fa fa-twitter  fa-2x" aria-hidden="true"></i></li>
+                         <li><i class="fa fa-facebook-square  fa-2x" aria-hidden="true"></i></li>
+                       </ul>
+                       <p class="pinfo"><%= space.company_info.split(" ")[0..15].join(" ") %>...</p>
+
+                       <%= link_to "View", space, class: "info" %>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+      </div>
+    <% end %>
+</div>
+</div>
+
+</div>
+
+
+
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
