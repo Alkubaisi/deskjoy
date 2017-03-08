@@ -41,11 +41,15 @@ class SpacesController < ApplicationController
   end
 
   def create
+    amenities = params[:space][:amenities]
     @space = Space.new(space_params)
     @space.user = current_user
 
     if @space.save!
-      redirect_to @space, notice: 'Space was successfully created.'
+      amenities.each do |amenity|
+        @space.update_attribute(amenity.to_sym, true)
+      end
+      redirect_to @space, notice: "Space was successfully created. <a href='#{dashboard_path}' class='alert-cta'>Add desks in your dashboard</a>"
     else
       render :new
     end

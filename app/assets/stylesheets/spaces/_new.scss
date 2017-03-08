@@ -15,14 +15,28 @@
   margin-bottom: 200px;
 }
 
-.checkbox {
+.checkbox-amenity {
   padding: 20px;
   background-color: #B9B8B9;
-  width: 200px;
-  opacity: 0.4;
+  display: block;
+  width: 100%;
+  opacity: 0.2;
+  border-radius: 3px;
+
+  .fa {
+    padding-left: 10px;
+    font-size: 20px;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
 
   &.active {
-    background-color: green;
+    background-color: $green;
+    font-weight: bold;
+    color: white;
+    opacity: 1;
   }
 
   label {

@@ -28,7 +28,7 @@
       <% current_user.bookings.each do |book| %>
       <div class="col-xs-12 col-md-6">
         <div class="card-dash-history">
-         <%= cl_image_tag book.table.space.photos.first.path %>
+         <div class="card-dash-header" style="background-image: url('<%= cl_image_path book.table.space.photos.first.path %>'); background-size: cover; height: 200px"></div>
          <div class="container-dash">
           <h4><b><%= book.table.space.company_name %></b></h4>
           <p><%= book.table.space.industry %></p>

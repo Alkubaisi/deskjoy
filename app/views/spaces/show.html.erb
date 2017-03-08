@@ -34,7 +34,7 @@
             <%= link_to profile_path(@space.user) do %>
             <div class="owner-div">
               <%= avatar_for_user_show(@space.user) %>
-              <%= @space.user.first_name %> <%= @space.user.last_name %>
+              <span><%= @space.user.first_name %> <%= @space.user.last_name %></span>
             </div>
             <% end %>
           </div>
@@ -58,61 +58,64 @@
       <div class="row">
         <div class="show-card">
           <h3>Amenities</h3>
-          <% if @space.event_space %>
-          <p>Event space available</p>
-          <% end %>
+
+          <ul class="list-inline">
+            <% if @space.event_space %>
+            <li>Event space available <i class="fa fa-check"></i></li>
+            <% end %>
 
 
-          <% if @space.reception %>
-          <p>Reception available</p>
-          <% end %>
+            <% if @space.reception %>
+            <li>Reception available <i class="fa fa-check"></i></li>
+            <% end %>
 
 
-          <% if @space.security %>
-          <p>Security available</p>
-          <% end %>
+            <% if @space.security %>
+            <li>Security available <i class="fa fa-check"></i></li>
+            <% end %>
 
 
-          <% if @space.bike_storage %>
-          <p>Bike Storage available</p>
-          <% end %>
+            <% if @space.bike_storage %>
+            <li>Bike Storage available <i class="fa fa-check"></i></li>
+            <% end %>
 
 
-          <% if @space.phone_booth %>
-          <p>Phone Booth available</p>
-          <% end %>
+            <% if @space.phone_booth %>
+            <li>Phone Booth available <i class="fa fa-check"></i></li>
+            <% end %>
 
 
-          <% if @space.kitchen %>
-          <p>Kitchen available</p>
-          <% end %>
+            <% if @space.kitchen %>
+            <li>Kitchen available <i class="fa fa-check"></i></li>
+            <% end %>
 
-          <% if @space.lockers %>
-          <p>Lockers available</p>
-          <% end %>
+            <% if @space.lockers %>
+            <li>Lockers available <i class="fa fa-check"></i></li>
+            <% end %>
 
-          <% if @space.cafe_restaurant %>
-          <p>Cafe/restaurant available</p>
-          <% end %>
+            <% if @space.cafe_restaurant %>
+            <li>Cafe/restaurant available <i class="fa fa-check"></i></li>
+            <% end %>
 
-          <% if @space.showers %>
-          <p>Showers available</p>
-          <% end %>
-
-
-          <% if @space.meeting_room %>
-          <p>Meeting room available</p>
-          <% end %>
+            <% if @space.showers %>
+            <li>Showers available <i class="fa fa-check"></i></li>
+            <% end %>
 
 
-          <% if @space.always_open %>
-          <p>24/7 Accesss</p>
-          <% end %>
+            <% if @space.meeting_room %>
+            <li>Meeting room available <i class="fa fa-check"></i></li>
+            <% end %>
 
 
-          <% if @space.wifi %>
-          <p>Wifi available</p>
-          <% end %>
+            <% if @space.always_open %>
+            <li>24/7 Accesss <i class="fa fa-check"></i></li>
+            <% end %>
+
+
+            <% if @space.wifi %>
+            <li>Wifi available <i class="fa fa-check"></i></li>
+            <% end %>
+          </ul>
         </div>
       </div>
 
@@ -123,10 +126,9 @@
             <tbody  class="text-center">
               <% @space.tables.each do |table| %>
               <tr>
-                <td><%= table.id %></td>
                 <td><%= table.desk_type %></td>
-                <td><%= table.price %></td>
-                <td>Yes</td>
+                <td>£<%= table.price %></td>
+                <td>Available <i class="fa fa-check"></i></td>
               </tr>
               <% end %>
             </tbody>
