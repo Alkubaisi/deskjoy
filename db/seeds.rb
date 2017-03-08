@@ -99,6 +99,6 @@ table = Table.create! space: space14, desk_type: "fixed desk with city view", pr
 table = Table.create! space: space15, desk_type: "private hot desk", price: 34
 table = Table.create! space: space15, desk_type: "hot desk", price: 20
 table = Table.create! space: space15, desk_type: "fixed desk with no view", price: 75
-table = Table.create! space: space15, desk_type: "fixed desk with city view", price: 96
+table = Table.create! space: space15, desk_type: "fixed desk with city view", price: 95
 
 
