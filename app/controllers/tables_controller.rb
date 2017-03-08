@@ -1,19 +1,17 @@
 class TablesController < ApplicationController
 
   def edit
-        @space = Space.find(params[:space_id])
-        @table = Table.find(params[:id])
+    @space = Space.find(params[:space_id])
+    @table = Table.find(params[:id])
   end
 
   def update
 
-@table = Table.find(params[:id])
-      if @table.update(table_params)
-        redirect_to @space, notice: 'space was successfully updated.'
-      else
-        format.html { render :edit }
-
-
+    @table = Table.find(params[:id])
+    if @table.update(table_params)
+      redirect_to @space, notice: 'space was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -42,8 +40,6 @@ class TablesController < ApplicationController
   end
 
   private
-
-
 
   def table_params
     params.require(:table).permit(:desk_type, :price )

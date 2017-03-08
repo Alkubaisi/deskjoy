@@ -1,23 +1,35 @@
 class SpacesController < ApplicationController
   before_action :set_space, only: [:show, :edit, :update]
-   before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index]
 
   def index
     @spaces = Space.all
     @spaces = @spaces.where(industry: params[:industry]) if (params[:industry] && params[:industry] != "all")
     @spaces = @spaces.near(params[:location], params[:radius]) if (params[:location] && params[:radius])
 
+    if params[:amenities]
+      @spaces = @spaces.select do |space|
+        params[:amenities].all? { |amenity| space[amenity] }
+      end
+    end
+
     @hash = Gmaps4rails.build_markers(@spaces) do |space, marker|
       marker.lat space.latitude
       marker.lng space.longitude
       marker.infowindow render_to_string(partial: "/spaces/map_box", locals: { space: space })
     end
+
+    respond_to do |format|
+      format.html {}
+      format.js   {}
+    end
+
   end
 
   def show
     @booking = Booking.new
-   @hash = Gmaps4rails.build_markers(@space) do |space, marker|
-        marker.lat space.latitude
+    @hash = Gmaps4rails.build_markers(@space) do |space, marker|
+      marker.lat space.latitude
       marker.lng space.longitude
     end
   end
@@ -38,22 +50,25 @@ class SpacesController < ApplicationController
 
   def new
     @space = Space.new
-    @amenities = ['event_space',"bike_storage","kitchen","showers", "lockers","meeting_room","refreshment", "cafe_restaurant", "always_open","wifi"]
-end
+  end
 
   def create
+    amenities = params[:space][:amenities]
     @space = Space.new(space_params)
     @space.user = current_user
 
-  if @space.save!
-      redirect_to @space, notice: 'Space was successfully created.'
+    if @space.save!
+      amenities.each do |amenity|
+        @space.update_attribute(amenity.to_sym, true)
+      end
+      redirect_to @space, notice: "Space was successfully created. <a href='#{dashboard_path}' class='alert-cta'>Add desks in your dashboard</a>"
     else
       render :new
     end
   end
 
 
-    def destroy
+  def destroy
     @space = Space.find(params[:id])
 
     if @space.destroy

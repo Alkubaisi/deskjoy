@@ -2,10 +2,18 @@
   <div class="form-inputs">
     <div class="add-form">
       <h3 class="text-center">Book a Desk</h3>
+
+      <div class="recap text-center">
+        <p><%= @space.address %></p>
+        <p>TOTAL COST:  <span>£</span><span id='booking-price'>0</span></p>
+      </div>
+
+
+
       <%= simple_form_for [@space, @booking] do |f| %>
       <%= f.error_notification %>
-      <%= f.association :table, required: true, collection: @space.tables.map{|t| ["Desk number: #{t.id}", t.id, data: { price: t.price }] }  %>
-
+      <%# f.association :table, required: true, collection: @space.tables.map{|t| ["Desk number: #{t.id}", t.id, data: { price: t.price }] }  %>
+      <%= f.association :table, collection: @space.tables.map{|t| ["#{t.desk_type} - £#{t.price} per day", t.id, data: { price: t.price }] }, prompt: "Choose your desk"  %>
       <div class="form-group">
         <span>From:</span>
         <div class='input-group date' id='bookingdate-from'>
@@ -26,16 +34,8 @@
         </div>
       </div>
 
-      <hr>
-
-      <h4 class="text-center">Booking Summary</h4>
-      <p><%= @space.address %></p>
-
-
-      <p>TOTAL COST:  £<span id='booking-price'>0</span></p>
-
       <div class="form-actions">
-        <%= f.submit "Book now", {class: "btn btn-primary" } %>
+        <%= f.submit "Book now", {class: "btn btn-primary",style: "padding: 20px; width:100%;" } %>
       </div>
       <% end %>
     </div>
@@ -51,7 +51,6 @@
       var start = $('#bookingdate-from').datepicker('getDate');
       var end = $('#bookingdate-to').datepicker('getDate');
       var tablePrice = $('#booking_table_id option:selected').data('price');
-
       if (start && end) {
         nbDays = (end - start) / (24 * 60 * 60 * 1000)
         if (nbDays > 0 && tablePrice) {
