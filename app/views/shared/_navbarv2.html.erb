@@ -54,7 +54,7 @@
      <% if current_user %>
      <div class="navbar-wagon-item">
       <div class="dropdown">
-        <%= cl_image_tag current_user.photo.path, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= avatar_for_user_navbar(current_user) %>
         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
           <li><%= link_to 'Profile', profile_path(current_user) %></li>
           <li><%= link_to 'Dashboard', dashboard_path %></li>
