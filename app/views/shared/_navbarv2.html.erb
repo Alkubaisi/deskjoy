@@ -57,7 +57,7 @@
      <div class="navbar-wagon-item">
       <div class="dropdown">
         <%= avatar_for_user_navbar(current_user) %>
-        <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
+        <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu" style="text-align: left; padding-left: 4px; ">
           <li><%= link_to 'Profile', profile_path(current_user) %></li>
           <li><%= link_to 'Dashboard', dashboard_path %></li>
           <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
