@@ -1,0 +1,125 @@
+<!-- app/views/payments/new.html.erb -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 text-center">
+
+      <div class="show-card" style="margin-top: 20px">
+        <h1>Booking for <%= @booking.table.desk_type %></h1>
+        <%= form_tag space_booking_payments_path(@space, @booking) do %>
+        You are booking with
+        <strong><%= @booking.table.space.company_name %> </strong><br>
+        Between the <%= @booking.start %> - <%= @booking.end %> <br>
+        Your booking is: <%= @booking.state %>
+
+        <article>
+          <label class="amount">
+            <span>Amount: <%= humanized_money_with_symbol(@booking.price_pennies / 100) %></span>
+          </label>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="Book this table"
+        data-email="<%= current_user.email %>"
+        data-description="<%= @booking.table.desk_type.capitalize %>"
+        data-amount="<%= @booking.price_pennies %>"
+        data-currency="gbp">
+        </script>
+      </div>
+
+
+      <div class="show-card">
+        <h3>Location</h3>
+        <div id="map" style="width: 100%; height: 300px;"></div>
+      </div>
+
+      <div class="show-card">
+        <h3>Amenities</h3>
+        <% if @space.event_space %>
+        <p>Event space available</p>
+        <% end %>
+
+        <% if @space.reception %>
+        <p>Reception available</p>
+        <% end %>
+
+        <% if @space.security %>
+        <p>Security available</p>
+        <% end %>
+
+        <% if @space.bike_storage %>
+        <p>Bike Storage available</p>
+        <% end %>
+
+        <% if @space.phone_booth %>
+        <p>Phone Booth available</p>
+        <% end %>
+
+        <% if @space.kitchen %>
+        <p>Kitchen available</p>
+        <% end %>
+
+        <% if @space.lockers %>
+        <p>Lockers available</p>
+        <% end %>
+
+        <% if @space.cafe_restaurant %>
+        <p>Cafe/restaurant available</p>
+        <% end %>
+
+        <% if @space.showers %>
+        <p>Showers available</p>
+        <% end %>
+
+        <% if @space.meeting_room %>
+        <p>Meeting room available</p>
+        <% end %>
+
+        <% if @space.always_open %>
+        <p>24/7 Accesss</p>
+        <% end %>
+
+        <% if @space.wifi %>
+        <p>Wifi available</p>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+
+      <div style="background-image: url('<%= cl_image_path @booking.table.space.photos.first.path %>'); background-position: center; background-size: cover; height: 862px; margin-top: 20px">
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for(:after_js) do %>
+<script>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({
+        internal: { id: 'map' },
+        provider: {
+          scrollwheel: false,
+          styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
+        }
+      }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+</script>
+<% end %>
+
+
+
+
+
+
+
