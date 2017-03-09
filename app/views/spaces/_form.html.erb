@@ -25,8 +25,8 @@
         <div class="row text-center">
          <% Space::AMENITIES.each do |title|%>
          <div class="col-xs-12 col-sm-4">
-            <label class="boolean optional checkbox-amenity" for="space_<%= title %>">
-              <input class="hidden" type="checkbox" value="<%= title %>" name="space[amenities][]" id="space_<%= title %>">
+            <label class="boolean optional checkbox-amenity <%= @space[title] ? 'active' : ''  %>" for="space_<%= title %>">
+              <input class="hidden" type="checkbox" <%= @space[title] ? 'checked' : ''  %> value="<%= title %>" name="space[amenities][]" id="space_<%= title %>">
               <%= title.tr('_', ' ').capitalize %>
               <i class="fa fa-check"></i>
             </label>

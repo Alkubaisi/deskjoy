@@ -1,4 +1,5 @@
 class TablesController < ApplicationController
+  before_action :set_space
 
   def edit
     @space = Space.find(params[:space_id])
@@ -6,7 +7,6 @@ class TablesController < ApplicationController
   end
 
   def update
-
     @table = Table.find(params[:id])
     if @table.update(table_params)
       redirect_to @space, notice: 'space was successfully updated.'
@@ -40,6 +40,10 @@ class TablesController < ApplicationController
   end
 
   private
+
+  def set_space
+    @space = Space.find(params[:space_id])
+  end
 
   def table_params
     params.require(:table).permit(:desk_type, :price )
