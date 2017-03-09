@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= yield(:title_tag).blank? ? "DeskJoy" : yield(:title_tag) %></title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+<head>
+  <title><%= yield(:title_tag).blank? ? "DeskJoy" : yield(:title_tag) %></title>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
 
-<meta property=”og:title” content=”DeskJoy” />
-<meta property=”og:url” content=”http://www.deskjoy.co.uk” />
-<meta property=”og:image” content="http://www.deskjoy.co.uk/assets/metaa-09c9201a306c570f8a491822342f533331cf9cbe9efad1604f0f6a72e2459077.jpg" />
-<meta property=”og:description” content="Find Workspace Within Your Industry" />
+  <meta name="description" content="Find Workspace Within Your Industry">
 
-<meta name = "twitter: title" content = "DeskJoy">
-<meta name = "twitter: description" content = "Find Workspace Within Your Industry">
-<meta name = "twitter: image: src" content = "app/assets/meta/meta.jpg">
+  <meta property=”og:title” content=”DeskJoy” />
+  <meta property=”og:url” content=”http://www.deskjoy.co.uk” />
+  <meta property=”og:image” content="/public/metaa.jpg" />
+  <meta property=”og:description” content="Find Workspace Within Your Industry" />
 
-  </head>
-  <body>
-    <%= render 'shared/navbarv2' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+  <meta name="twitter:site" content="www.deskjoy.co.uk">
+  <meta name="twitter:title" content="DeskJoy">
+  <meta name="twitter:description" content="Find Workspace Within Your Industry">
+  <meta name="twitter:creator" content="@Lewagonparis">
+  <meta name="twitter:image:src" content="/public/metaa.jpg">
+
+</head>
+<body>
+  <%= render 'shared/navbarv2' %>
+  <%= render 'shared/flashes' %>
+  <%= yield %>
+  <%= render 'shared/footer' %>
 
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
   <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
@@ -32,5 +36,5 @@
 
   <%= yield(:after_js) %>
 
-  </body>
+</body>
 </html>
