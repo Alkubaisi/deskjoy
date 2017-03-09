@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :table
 
-
+  monetize :price_pennies
   # validates :table, uniqueness: { scope: :user }
 
 #We will want to adapt this when we are further along.

@@ -12,11 +12,12 @@
 
       <%= simple_form_for [@space, @booking] do |f| %>
       <%= f.error_notification %>
+      <%# f.association :table, required: true, collection: @space.tables.map{|t| ["Desk number: #{t.id}", t.id, data: { price: t.price }] }  %>
       <%= f.association :table, collection: @space.tables.map{|t| ["#{t.desk_type} - £#{t.price} per day", t.id, data: { price: t.price }] }, prompt: "Choose your desk"  %>
       <div class="form-group">
         <span>From:</span>
         <div class='input-group date' id='bookingdate-from'>
-          <input type="text" class="input-sm form-control" name="start" />
+          <input type="text" required class="input-sm form-control" name="booking[start]" />
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
@@ -26,7 +27,7 @@
       <div class="form-group">
         <span>To:</span>
         <div class='input-group date' id='bookingdate-to'>
-         <input type="text" class="input-sm form-control" name="end" />
+         <input type="text" required class="input-sm form-control" name="booking[end]" />
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
@@ -44,6 +45,8 @@
 
 <%= content_for(:after_js) do %>
   <script>
+  $(function() {
+    // UPDATE TOTAL BOOKING PRICE
     $('#new_booking .form-control').on('change', function(){
       var start = $('#bookingdate-from').datepicker('getDate');
       var end = $('#bookingdate-to').datepicker('getDate');
@@ -57,5 +60,62 @@
         }
       }
     });
+
+    // BOOKING FORM STICKY
+    var initTop = $('#new-booking-form').offset().top;
+    var initWidth = $('#new-booking-form').width() + 40; // 20 + 20 for padding
+    var initRight = $('#new-booking-form').offset().right;
+
+    $(window).scroll(function() {
+
+      if($(window).width() >= 768 && $('#new-booking-form')) {
+        var currentScroll = $(window).scrollTop();
+
+        if (currentScroll < initTop) {
+          $('#new-booking-form').css({
+            position: 'static',
+            width: initWidth
+          });
+        } else {
+
+          $('#new-booking-form').css({
+            position: 'fixed',
+            top: 0,
+            right: initRight,
+            width: initWidth
+          });
+        }
+      }
+    });
+
+    // DATETIME PICKER INIT
+    $('#bookingdate-from').datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true,
+      todayHighlight: true
+      // defaultDate: new Date(),
+      // disabledDates: [],
+      // sideBySide: true,
+      // minDate: new Date(),
+    });
+
+    $('#bookingdate-to').datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true,
+      todayHighlight: true,
+      useCurrent: false
+      // defaultDate: new Date(),
+      // disabledDates: [],
+      // sideBySide: true,
+      // minDate: new Date(),
+      // useCurrent: false,
+    });
+
+    // LINKED DATETIMEPICKERS
+    // $("#bookingdate-from").on("dp.change", function (e) {
+    //   console.log("test");
+    //   $('#bookingdate-to').data("DateTimePicker").minDate(e.date);
+    // });
+  });
   </script>
 <% end %>

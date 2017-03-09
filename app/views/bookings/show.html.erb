@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="show-card" style="margin-top: 20px">
+      <div text-center>
+        <h1>Booking Confirmation </h1>
+        Your booking is: <%= @booking.state %><br>
+        <p>
+        <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary" %>
+      </div>
+      </div>
+
+   <div class="show-card">
+        <h3>Questions?</h3>
+        Drop us an email on our <%= link_to "Contact Page", contact_path, class: "btn btn-primary" %>
+
+      </div>
+
+
+
+    </div>
+    <div class="col-md-6">
+      <%= cl_image_tag @booking.table.space.photos.first.path %>
+
+    </div>
+  </div>
+</div>
